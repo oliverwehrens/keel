@@ -25,21 +25,44 @@ Set the epic's `status: refining`, then repeat until the gate is met:
    - Risks & dependencies: listed?
    - Confidence: honestly 4–5 of 5?
 
-2. **Attack the biggest gap.** Take the weakest item and resolve it:
-   - Surface the specific ambiguity to the user as concrete options/questions, not open
-     prose. Prefer "A or B?" over "what do you think?".
-   - Turn answers into tightened scope, sharper criteria, or resolved questions.
-   - Convert resolved unknowns from *Open questions* into the relevant section.
+2. **Pose every open question as a choice — don't decide for the user.** For each open
+   question (existing or newly surfaced), write **exactly three** distinct, viable options
+   into the epic's *Open questions* section as a checklist, each with pros and cons, and
+   mark the one you recommend with `(recommend)`:
 
-3. **Update the epic and score it.** Re-assess confidence honestly. Append a Changelog
+   ```
+   ### Q: <the open question>
+   - [ ] **A — <short name>** (recommend)
+     - Pros: <why this is good>
+     - Cons: <the trade-off>
+   - [ ] **B — <short name>**
+     - Pros: …
+     - Cons: …
+   - [ ] **C — <short name>**
+     - Pros: …
+     - Cons: …
+   ```
+
+   The three must be real alternatives, not one option and two straw men. Leave the boxes
+   empty — the user picks by marking `[x]` when they review the file. Then hand back so
+   they can choose; do not pick for them.
+
+3. **Fold in the user's picks.** Once questions are marked `[x]`, apply each chosen option:
+   tighten scope / sharpen acceptance criteria / record the resulting risk, then replace
+   that question's block with a one-line `**Decision:** <choice> — <why>` so the trail is
+   kept.
+
+4. **Update the epic and score it.** Re-assess confidence honestly. Append a Changelog
    entry: date, what changed, new confidence. Bump `confidence` and `updated` in
    front-matter.
 
-4. **Stop conditions.**
-   - **Gate met** → set `status: ready`. State which criteria now pass.
-   - **Blocked** → if a question can't be answered now, either defer it explicitly
-     (owner + why it's safe to defer) or stop and tell the user what external input is
-     needed. Do not fake confidence to pass the gate.
+5. **Stop conditions.**
+   - **All questions answered & gate met** → set `status: ready`, state which criteria now
+     pass, and **suggest `sdd-reconcile`** to make the document final.
+   - **Questions still open** → hand back with the three-option blocks in place and wait for
+     the user's `[x]` picks; do not advance.
+   - **Blocked** → if a question genuinely can't be answered yet, defer it explicitly (owner
+     + why it's safe to defer). Never fake confidence to pass the gate.
 
 ## Guardrails
 
@@ -49,4 +72,6 @@ Set the epic's `status: refining`, then repeat until the gate is met:
 
 ## Next
 
-When `ready`, recommend `sdd-breakdown` to split it into implementation stories.
+When every open question is answered and the gate passes, recommend `sdd-reconcile` to
+reconcile the epic against the briefing and make the document final. (Breakdown into
+stories follows once the epic is final.)
