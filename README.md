@@ -7,19 +7,20 @@ the chat; the skills keep the spec artifacts in `specs/` consistent and reviewab
 ## Pipeline
 
 ```
-briefing  ─►  epics  ─►  refine  ─►  breakdown  ─►  (implement · verify)
+briefing  ─►  epics  ─►  refine  ─►  reconcile  ─►  breakdown  ─►  (implement · verify)
 ```
 
-| Phase     | Skill           | Produces                          |
-| --------- | --------------- | --------------------------------- |
-| Briefing  | `/sdd-briefing` | `specs/briefing.md`               |
-| Epics     | `/sdd-epic`     | `specs/epics/EPIC-NNN-*.md`       |
-| Refine    | `/sdd-refine`   | a `ready` epic (confidence gate)  |
-| Breakdown | `/sdd-breakdown`| `specs/stories/EPIC-NNN/*.md`     |
+| Phase     | Skill            | Produces                          |
+| --------- | ---------------- | --------------------------------- |
+| Briefing  | `/sdd-briefing`  | `specs/briefing.md`               |
+| Epics     | `/sdd-epic`      | `specs/epics/EPIC-NNN-*.md`       |
+| Refine    | `/sdd-refine`    | a `ready` epic (confidence gate)  |
+| Reconcile | `/sdd-reconcile` | a `reconciled` (final) epic       |
+| Breakdown | `/sdd-breakdown` | `specs/stories/EPIC-NNN/*.md`     |
 
-This is the **core spine**. Planned next phases: reconcile (epic ↔ briefing &
-cross-epic), tech-stack definition, an **architecture-guardian subagent** that reviews
-work against guidelines, and the implement/verify phases.
+This is the **spine**. Planned next phases: tech-stack definition, an
+**architecture-guardian subagent** that reviews work against guidelines, and the
+implement/verify phases.
 
 ## How it works
 
@@ -35,7 +36,9 @@ work against guidelines, and the implement/verify phases.
 1. `/sdd-briefing` — answer the interview to produce `specs/briefing.md`.
 2. `/sdd-epic` — draft epics from the briefing.
 3. `/sdd-refine` — iterate an epic until it clears the confidence gate (`ready`).
-4. `/sdd-breakdown` — split a ready epic into implementation stories.
+4. `/sdd-reconcile` — reconcile the ready epic against the briefing and siblings; mark it
+   `reconciled` (final).
+5. `/sdd-breakdown` — split a reconciled epic into implementation stories.
 
 The key idea: **nothing advances until it's earned it.** `sdd-refine` will not mark an
 epic `ready` until scope, acceptance criteria, open questions, and risks all pass the

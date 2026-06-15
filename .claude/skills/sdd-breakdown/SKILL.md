@@ -10,9 +10,10 @@ scheme and the story template.
 
 ## Preconditions
 
-- The target epic is `status: ready`. If it is not, stop and recommend `sdd-refine`
-  first — breaking down a soft epic produces soft stories. (If the user insists, warn
-  once, then proceed.)
+- The target epic is `status: reconciled` (final). If it is only `ready`, recommend
+  `sdd-reconcile` first so the epic is consistent with the briefing and its siblings; if it
+  is `draft`/`refining`, recommend `sdd-refine`. Breaking down a soft or unreconciled epic
+  produces soft stories. (If the user insists, warn once, then proceed.)
 
 ## Procedure
 

@@ -8,17 +8,19 @@ implementation must conform to.
 ## Pipeline
 
 ```
-briefing  ─►  epics  ─►  refine  ─►  breakdown ─►  (implementation)
- sdd-briefing  sdd-epic   sdd-refine   sdd-breakdown
+briefing ─► epics ─► refine ─► reconcile ─► breakdown ─► (implementation)
+sdd-briefing sdd-epic sdd-refine sdd-reconcile sdd-breakdown
 ```
 
 1. **Briefing** (`sdd-briefing`) — capture the raw intent in `briefing.md`.
 2. **Epic** (`sdd-epic`) — turn the briefing into one or more epics under `epics/`.
-3. **Refine** (`sdd-refine`) — iterate an epic until it clears the confidence gate.
-4. **Breakdown** (`sdd-breakdown`) — split a `ready` epic into implementation stories.
+3. **Refine** (`sdd-refine`) — iterate an epic until it clears the confidence gate (`ready`).
+4. **Reconcile** (`sdd-reconcile`) — check the `ready` epic against the briefing and its
+   sibling epics, resolve inconsistencies, and mark it `reconciled` (final).
+5. **Breakdown** (`sdd-breakdown`) — split a `reconciled` epic into implementation stories.
 
-> Later phases (reconcile, tech-stack, architecture guardian, implement, verify) plug
-> in after breakdown and are not part of this first spine.
+> Later phases (tech-stack, architecture guardian, implement, verify) plug in after
+> breakdown and are not part of this spine yet.
 
 ## Layout
 
@@ -52,7 +54,8 @@ Every epic and story carries a `status` in its front-matter:
 | -------------- | -------------------------------------------------------------- |
 | `draft`        | created, not yet refined                                       |
 | `refining`     | actively being iterated by `sdd-refine`                        |
-| `ready`        | cleared the confidence gate; safe to break down / implement    |
+| `ready`        | cleared the confidence gate; ready to reconcile                |
+| `reconciled`   | consistent with briefing & sibling epics; final, ready to split |
 | `broken-down`  | epic has been split into stories                               |
 | `in-progress`  | implementation under way (later phase)                         |
 | `verified`     | implementation verified against acceptance criteria (later)    |
