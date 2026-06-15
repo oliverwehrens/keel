@@ -71,7 +71,7 @@ See **[`docs/brownfield.md`](docs/brownfield.md)** for the full how-to.
 ## Iterating after the first loop
 
 You don't restart the loop to add a feature — you **re-enter** at the right phase (new feature →
-`sdd-epic`, change → `sdd-refine`, refactor → `sdd-tech-refine`, bug → `sdd-implement`).
-`sdd-verify` adds **non-regression** (every previously verified epic stays verified), and
-**`/sdd-audit`** detects spec ↔ code drift before you build. See
-**[`docs/iteration.md`](docs/iteration.md)**.
+`sdd-epic`, change → `sdd-refine`, refactor → `sdd-tech-refine`, bug → `sdd-implement`). Before
+changing, **`/sdd-impact`** predicts the blast radius (which product epics, tech, and tests it
+touches); `sdd-verify` adds **non-regression** (every previously verified epic stays verified); and
+**`/sdd-audit`** detects spec ↔ code drift. See **[`docs/iteration.md`](docs/iteration.md)**.

@@ -38,8 +38,9 @@ The tech phases decide *how* and must trace to it; they never redefine *what*.
 **Brownfield?** A repo that already has code starts with **`sdd-adopt`** — reverse-engineer the
 spec from the code and ratify it — then rejoins the loop. See `docs/brownfield.md`.
 
-**Iterating?** After the first loop you re-enter at the right phase, `sdd-verify` enforces
-non-regression, and **`sdd-audit`** detects spec ↔ code drift. See `docs/iteration.md`.
+**Iterating?** After the first loop you re-enter at the right phase. Before a change, **`sdd-impact`**
+predicts the blast radius (product epics first); `sdd-verify` enforces non-regression; and
+**`sdd-audit`** detects spec ↔ code drift. See `docs/iteration.md`.
 
 ## The interaction loop
 

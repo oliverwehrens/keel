@@ -36,5 +36,5 @@ unchanged.
   passes the confidence gate, it just does so in minutes.
 - **Check for drift first.** If the area has changed outside the loop, run `sdd-audit` before
   iterating so you're amending a spec that still matches reality.
-- **Impact before change.** Epics and stories track dependencies — use them to see the blast radius
-  before you amend.
+- **Impact before change.** Run `sdd-impact` to predict the blast radius — the product epics, tech,
+  and tests a change would disturb — so you size and sequence it before you amend.
