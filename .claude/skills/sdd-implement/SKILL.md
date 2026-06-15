@@ -47,14 +47,27 @@ For each acceptance criterion (a Given/When/Then scenario) in the story:
 - **Ubiquitous language:** name code and tests with the terms in `specs/glossary.md`. If you need
   a new domain term, add it to the glossary.
 
-## Checkpoints
+## Architecture conformance — required
 
-- Run the `architecture-guardian` subagent on the diff before finishing; resolve its blockers.
-- Keep the story's traceability current: each criterion maps to the acceptance test that covers
-  it (fill the `_test:_` reference in the story).
+Every breakdown task (story) **must** be checked by the `architecture-guardian` subagent before
+it is considered done. This is mandatory, not optional:
+
+- Invoke the `architecture-guardian` subagent (the Agent/Task tool with
+  `subagent_type: architecture-guardian`) on the story's diff, pointing it at the story, its
+  parent epic, and the changed files.
+- Treat every `blocker` it returns as remaining work: fix and **re-run the guardian** until it
+  returns **PASS**. Resolve `warning`s or record explicitly why they are acceptable.
+- Do not hand off, and do not let the story leave `in-progress`, while the guardian reports any
+  blocker. The guardian's verdict on conformance is a gate, not advice.
+
+## Keep traceability current
+
+Each acceptance criterion maps to the acceptance test that covers it — fill the `_test:_`
+reference in the story as tests are written.
 
 ## Done
 
-When every criterion's acceptance test (and its unit tests) is green and the guardian passes,
-hand off to `sdd-verify`. Leave `status: in-progress` until verify confirms the Definition of
-Done — implement does not self-certify.
+When every criterion's acceptance test (and its unit tests) is green **and** the
+`architecture-guardian` has returned PASS on the change, hand off to `sdd-verify`. Leave
+`status: in-progress` until verify confirms the Definition of Done — implement does not
+self-certify.
