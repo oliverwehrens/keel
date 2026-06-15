@@ -1,23 +1,21 @@
 /*
- * trstd theme for reveal.js
- * Brand palette sourced from trstd.com (Trusted Shops):
- *   navy  #03113A   cyan #0DBEDC   cyan-light #56D2FB
- *   teal  #0A7A94   gold #FFDC0F
+ * trstd — bold, full-bleed theme for reveal.js
+ * Brand palette from trstd.com (Trusted Shops):
+ *   navy #03113A · cyan #0DBEDC · cyan-light #56D2FB · teal #0A7A94 · gold #FFDC0F
  */
 
 :root {
   --navy: #03113a;
   --navy-2: #061a52;
-  --navy-panel: #0a1c4d;
-  --navy-line: #1f3169;
+  --navy-panel: #0b1f56;
+  --navy-line: #21356f;
   --cyan: #0dbedc;
   --cyan-light: #56d2fb;
   --teal-dark: #0a7a94;
   --gold: #ffdc0f;
-  --text: #e9f0f8;
-  --muted: #9db0c7;
+  --text: #eef4fb;
+  --muted: #9fb2cb;
 
-  /* reveal.js core variables */
   --r-background-color: var(--navy);
   --r-main-color: var(--text);
   --r-main-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -27,10 +25,10 @@
   --r-heading-text-transform: none;
   --r-heading-text-shadow: none;
   --r-heading-font-weight: 800;
-  --r-heading-line-height: 1.08;
-  --r-heading-letter-spacing: -0.02em;
-  --r-heading1-text-size: 2.6em;
-  --r-heading2-text-size: 1.7em;
+  --r-heading-line-height: 1.04;
+  --r-heading-letter-spacing: -0.03em;
+  --r-heading1-text-size: 3.4em;
+  --r-heading2-text-size: 2.05em;
   --r-heading3-text-size: 1.2em;
   --r-link-color: var(--cyan);
   --r-link-color-hover: var(--cyan-light);
@@ -39,162 +37,243 @@
   --r-code-font: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
+/* ---------- Backdrop ---------- */
 .reveal-viewport {
-  background: radial-gradient(1200px 800px at 80% -10%, #0a2466 0%, var(--navy) 55%);
+  background:
+    radial-gradient(1100px 700px at 88% -8%, rgba(13, 190, 220, 0.22), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(255, 220, 15, 0.08), transparent 55%),
+    var(--navy);
 }
 
-.reveal { color: var(--r-main-color); }
+.reveal { color: var(--r-main-color); font-weight: 400; }
 
+/* ---------- Full-bleed slide layout ---------- */
 .reveal .slides { text-align: left; }
-.reveal .slides section { height: 100%; }
+.reveal .slides > section,
+.reveal .slides > section > section {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  padding: 70px 96px 92px;
+}
+/* scope the flex fill to the visible slide so reveal's display:block doesn't win */
+.reveal .slides > section.present,
+.reveal .slides > section > section.present {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45em;
+}
 
+/* full-height accent rail on the left edge of every slide */
+.reveal .slides > section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: linear-gradient(180deg, var(--cyan), var(--gold));
+}
+
+/* ---------- Headings ---------- */
 .reveal h1,
 .reveal h2,
 .reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 { color: var(--r-heading-color); }
+.reveal h4 { color: var(--r-heading-color); font-weight: 800; }
 
-.reveal h1,
-.reveal h2,
-.reveal h3 { font-weight: 800; }
-
-.reveal h2 { margin-bottom: 0.5em; }
-.reveal h2 .accent,
-.reveal h1 .accent { color: var(--cyan); }
-.reveal strong { color: var(--gold); font-weight: 700; }
-.reveal em { color: var(--cyan-light); font-style: normal; }
-
-/* accent rule under section headings */
+.reveal h2 {
+  margin: 0 0 0.15em;
+  line-height: 1.04;
+}
 .reveal h2::after {
   content: "";
   display: block;
-  width: 84px;
-  height: 5px;
-  margin-top: 0.35em;
-  border-radius: 4px;
+  width: 132px;
+  height: 7px;
+  margin-top: 0.32em;
+  border-radius: 6px;
   background: linear-gradient(90deg, var(--cyan), var(--gold));
 }
-.reveal section.title h1::after,
 .reveal h2.bare::after { display: none; }
+.reveal h2 .accent,
+.reveal h1 .accent { color: var(--cyan); }
 
-.reveal ul { margin-left: 1em; }
-.reveal li { margin: 0.35em 0; line-height: 1.3; }
-.reveal li::marker { color: var(--cyan); }
+.reveal strong { color: var(--gold); font-weight: 700; }
+.reveal em { color: var(--cyan-light); font-style: normal; }
+
+/* ---------- Body copy ---------- */
+.reveal p { margin: 0.25em 0; line-height: 1.35; font-size: 1.04em; }
+.reveal ul { margin: 0.2em 0 0 0.4em; list-style: none; }
+.reveal ul li {
+  position: relative;
+  margin: 0.5em 0;
+  padding-left: 1.3em;
+  line-height: 1.34;
+  font-size: 1.05em;
+}
+.reveal ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.6em;
+  height: 0.16em;
+  border-radius: 3px;
+  background: var(--cyan);
+}
 
 .reveal .lead { color: var(--muted); font-size: 0.9em; }
 .reveal .muted { color: var(--muted); }
-.reveal .small { font-size: 0.72em; }
+.reveal .small { font-size: 0.78em; }
 
-/* ---- Title slide ---- */
-.reveal section.title { text-align: left; }
+/* ---------- Title slides ---------- */
+.reveal section.title { gap: 0.2em; }
 .reveal section.title .kicker {
   color: var(--cyan);
   font-family: var(--r-code-font);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  font-size: 0.5em;
-  margin-bottom: 0.4em;
+  font-size: 0.62em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
 }
 .reveal section.title h1 {
-  font-size: 3.1em;
-  background: linear-gradient(90deg, #ffffff 0%, var(--cyan-light) 60%, var(--cyan) 100%);
+  font-size: 3.7em;
+  line-height: 0.98;
+  margin: 0;
+  background: linear-gradient(92deg, #ffffff 0%, var(--cyan-light) 55%, var(--cyan) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.reveal section.title .sub { color: var(--gold); font-size: 1.05em; margin-top: 0.2em; }
-.reveal section.title .by { color: var(--muted); font-size: 0.62em; margin-top: 1.2em; }
+.reveal section.title .sub {
+  color: var(--gold);
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 0.55em;
+}
+.reveal section.title .by { color: var(--muted); font-size: 0.66em; margin-top: 1.4em; }
 
-/* ---- Phase badges ---- */
+/* ---------- Phase badges ---------- */
 .badge {
   display: inline-block;
+  align-self: flex-start;
   font-family: var(--r-code-font);
   font-size: 0.5em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.25em 0.7em;
-  border-radius: 999px;
-  border: 1px solid currentColor;
-  vertical-align: middle;
-}
-.badge.product { color: var(--cyan); }
-.badge.tech { color: var(--gold); }
-.badge.build { color: var(--cyan-light); }
-.badge.guard { color: #ff9d9d; }
-.badge.life { color: #b9a3ff; }
-
-/* ---- Skill slide ---- */
-.skill-name {
-  font-family: var(--r-code-font);
-  color: #fff;
   font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.45em 1em;
+  border-radius: 999px;
+  color: var(--navy);
+  background: var(--cyan);
+  margin-bottom: 0.2em;
 }
+.badge.product { background: var(--cyan); }
+.badge.tech { background: var(--gold); }
+.badge.build { background: var(--cyan-light); }
+.badge.guard { background: #ff9d9d; }
+.badge.life { background: #b9a3ff; }
+
+/* ---------- Skill slides ---------- */
+.skill-name { font-family: var(--r-code-font); color: #fff; font-weight: 700; }
+
 .io {
   display: inline-flex;
+  align-self: flex-start;
   gap: 0.6em;
   align-items: center;
   font-family: var(--r-code-font);
-  font-size: 0.62em;
+  font-size: 0.7em;
   color: var(--muted);
   background: var(--navy-panel);
   border: 1px solid var(--navy-line);
-  border-radius: 10px;
-  padding: 0.5em 0.8em;
-  margin: 0.3em 0;
+  border-radius: 12px;
+  padding: 0.6em 1em;
+  margin: 0.2em 0 0.1em;
 }
 .io b { color: var(--cyan); font-weight: 600; }
-.io .arrow { color: var(--gold); }
+.io .arrow { color: var(--gold); font-weight: 700; }
 
 .keyidea {
-  margin-top: 0.6em;
-  padding: 0.5em 0.9em;
-  border-left: 4px solid var(--gold);
-  background: rgba(255, 220, 15, 0.06);
-  color: var(--text);
-  font-size: 0.82em;
+  margin-top: 0.5em;
+  padding: 0.7em 1.1em;
+  border-left: 6px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  background: linear-gradient(90deg, rgba(255, 220, 15, 0.12), rgba(255, 220, 15, 0.02));
+  color: #fff;
+  font-size: 0.92em;
+  font-weight: 500;
 }
 
-/* ---- Two-column ---- */
-.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; }
-.cols.tight { gap: 0.8em; }
+/* ---------- Columns / cards ---------- */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3em; align-items: start; }
+.cols.tight { gap: 1em; }
 .card {
   background: var(--navy-panel);
   border: 1px solid var(--navy-line);
-  border-radius: 14px;
-  padding: 0.7em 1em;
+  border-radius: 18px;
+  padding: 0.95em 1.2em;
 }
-.card h3 { color: var(--cyan); margin: 0 0 0.2em; font-size: 1em; }
-.card.warn { border-color: #5a2230; background: rgba(255, 90, 110, 0.06); }
-.card.warn h3 { color: #ff8a9b; }
+.card h3 { color: var(--cyan); margin: 0 0 0.25em; font-size: 1.05em; }
+.card.warn { border-color: #6a2638; background: linear-gradient(180deg, rgba(255, 90, 110, 0.12), rgba(255, 90, 110, 0.03)); }
+.card.warn h3 { color: #ff9bab; }
 
-/* ---- Pipeline diagram ---- */
-.pipe { font-family: var(--r-code-font); font-size: 0.62em; line-height: 2.1; }
-.pipe .row { display: flex; align-items: center; gap: 0.5em; flex-wrap: wrap; }
+/* ---------- Pipeline diagram ---------- */
+.pipe { font-family: var(--r-code-font); font-size: 0.78em; line-height: 2.3; }
+.pipe .row { display: flex; align-items: center; gap: 0.55em; flex-wrap: wrap; margin: 0.25em 0; }
 .pipe .tag {
-  width: 110px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em;
-  font-size: 0.8em;
+  width: 110px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74em;
+  font-weight: 600;
 }
 .pipe .step {
-  background: var(--navy-panel); border: 1px solid var(--navy-line);
-  border-radius: 8px; padding: 0.25em 0.6em; color: #fff;
+  background: var(--navy-panel);
+  border: 1px solid var(--navy-line);
+  border-radius: 10px;
+  padding: 0.35em 0.75em;
+  color: #fff;
 }
 .pipe .row.product .step { border-color: var(--cyan); }
 .pipe .row.tech .step { border-color: var(--gold); }
 .pipe .row.build .step { border-color: var(--cyan-light); }
-.pipe .sep { color: var(--gold); }
-.pipe .sot { color: var(--gold); }
+.pipe .sep { color: var(--gold); font-weight: 700; }
+.pipe .sot { color: var(--gold); font-weight: 700; }
 
-code, .reveal code { color: var(--cyan-light); }
-.reveal pre code { background: var(--navy-panel); border: 1px solid var(--navy-line); border-radius: 12px; }
+/* ---------- Code ---------- */
+.reveal code, code { color: var(--cyan-light); font-family: var(--r-code-font); }
+.reveal pre code {
+  background: var(--navy-panel);
+  border: 1px solid var(--navy-line);
+  border-radius: 14px;
+}
 
-/* ---- Footer branding ---- */
-.reveal .footer {
-  position: fixed; bottom: 14px; left: 24px;
-  font-family: var(--r-code-font); font-size: 13px; color: var(--muted);
+/* ---------- Chrome ---------- */
+.footer {
+  position: fixed;
+  bottom: 22px;
+  left: 40px;
+  font-family: var(--r-code-font);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
   z-index: 30;
 }
-.reveal .footer b { color: var(--cyan); }
-.reveal .progress { color: var(--cyan); height: 4px; }
+.footer b { color: var(--cyan); }
+
+.reveal .progress { color: var(--gold); height: 6px; }
+.reveal .progress span { background: linear-gradient(90deg, var(--cyan), var(--gold)); }
 .reveal .controls { color: var(--cyan); }
-.reveal .slide-number { background: transparent; color: var(--muted); font-family: var(--r-code-font); }
+.reveal .slide-number {
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--r-code-font);
+  font-size: 14px;
+  right: 40px;
+  bottom: 18px;
+}
