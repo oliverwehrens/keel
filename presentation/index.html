@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentic Engineering — from code to specification</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="theme/trstd.css" id="theme" />
+    <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="footer"><b>#trstd</b> · Agentic Engineering</div>
+    <div class="reveal">
+      <div class="slides">
+        <!-- 1. Title -->
+        <section class="title" data-auto-animate>
+          <div class="kicker">Spec-Driven Development</div>
+          <h1>Agentic<br />Engineering</h1>
+          <div class="sub">From writing code to writing specifications</div>
+          <div class="by">A practical look at the agentic development loop — and the skills that drive it</div>
+        </section>
+
+        <!-- 2. Overview -->
+        <section>
+          <h2>What we'll cover</h2>
+          <div class="cols tight">
+            <div>
+              <ul>
+                <li>How agentic engineering <strong>changes the status quo</strong></li>
+                <li>How it <strong>changes the work</strong> of a developer</li>
+                <li>Why attention shifts from <em>coding</em> to <em>specification</em></li>
+                <li>What to <strong>watch out for</strong></li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li>Why we <strong>split product refinement from implementation</strong></li>
+                <li>The <em>loop</em> — one slide per skill</li>
+                <li>The gates that keep it honest</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lead small">A pipeline of gated, human-reviewed artifacts — not a magic "build my app" button.</p>
+        </section>
+
+        <!-- 3. Status quo -->
+        <section>
+          <h2>The status quo</h2>
+          <div class="cols">
+            <div class="card">
+              <h3>How we build today</h3>
+              <ul class="small">
+                <li>Humans <strong>type the code</strong>; agents autocomplete</li>
+                <li>The spec lives in tickets, threads, and heads</li>
+                <li>Throughput bounded by <em>typing &amp; reading speed</em></li>
+                <li>Tests written after, if at all</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>The implicit bet</h3>
+              <ul class="small">
+                <li>The expensive, scarce resource is <strong>writing code</strong></li>
+                <li>So tools optimize keystrokes and navigation</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lead">That bet is what changes.</p>
+        </section>
+
+        <!-- 4. What changes -->
+        <section>
+          <h2>What agentic engineering changes</h2>
+          <ul>
+            <li>Agents now <strong>plan, write, test, and review</strong> code — not just complete a line</li>
+            <li>Typing stops being the bottleneck; <strong>clarity of intent</strong> becomes it</li>
+            <li>The <em>specification</em> — not the keystroke — is the scarce input</li>
+          </ul>
+          <div class="keyidea">
+            The constraint moves from <strong>"how fast can we write code?"</strong>
+            to <strong>"how precisely can we say what we want — and verify we got it?"</strong>
+          </div>
+        </section>
+
+        <!-- 5. How it changes development -->
+        <section>
+          <h2>How it changes development</h2>
+          <div class="cols tight">
+            <div class="card">
+              <h3>The developer becomes…</h3>
+              <ul class="small">
+                <li>A <strong>director</strong> of intent</li>
+                <li>An <strong>architect</strong> of constraints</li>
+                <li>A <strong>reviewer</strong> &amp; verifier</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>The work becomes…</h3>
+              <ul class="small">
+                <li>A pipeline of <strong>gated artifacts</strong></li>
+                <li>Acceptance criteria as <em>first-class drivers</em></li>
+                <li>Verification is the deliverable, not an afterthought</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lead">More leverage — but output quality is capped by <strong>spec quality</strong> and <strong>verification</strong>.</p>
+        </section>
+
+        <!-- 6. Attention shift -->
+        <section>
+          <h2>Coding <span class="muted">→</span> Specification</h2>
+          <p>An agent is rarely blocked by <em>typing</em>. It is blocked by <strong>ambiguity</strong>.</p>
+          <ul>
+            <li>Vague intent → confidently wrong code</li>
+            <li>Precise intent → faithful, reviewable output</li>
+            <li>So effort moves <strong>upstream</strong>: define, refine, agree — <em>then</em> generate</li>
+          </ul>
+          <div class="keyidea">
+            The <strong>specification is the new source code</strong>.
+            Code becomes a build artifact of a well-formed spec.
+          </div>
+        </section>
+
+        <!-- 7. Why split product from implementation -->
+        <section>
+          <h2>Why split product &amp; implementation</h2>
+          <div class="cols tight">
+            <div>
+              <ul class="small">
+                <li>The <strong>source of truth must be the product</strong> (what &amp; why) — never the code</li>
+                <li>Reaching confidence on a <em>paragraph</em> is far cheaper than on a codebase</li>
+                <li>Agents only implement faithfully from a <strong>solid, unambiguous spec</strong></li>
+              </ul>
+            </div>
+            <div>
+              <ul class="small">
+                <li>One product spec can drive <em>any</em> tech — and tech traces back to it</li>
+                <li>Two modes of thinking: <strong>divergent</strong> product vs <strong>convergent</strong> execution</li>
+                <li>A hard gate (<em>reconcile</em>) finalizes product <em>before</em> a single tech decision</li>
+              </ul>
+            </div>
+          </div>
+          <div class="keyidea">Decide <strong>what</strong> until you're confident. Only then decide <strong>how</strong>.</div>
+        </section>
+
+        <!-- 8. The loop overview -->
+        <section>
+          <h2>The loop</h2>
+          <div class="pipe">
+            <div class="row product">
+              <span class="tag">Product</span>
+              <span class="step">briefing</span><span class="sep">→</span>
+              <span class="step">epic</span><span class="sep">→</span>
+              <span class="step">refine</span><span class="sep">→</span>
+              <span class="step">reconcile</span>
+              <span class="sot">★ source of truth</span>
+            </div>
+            <div class="row tech">
+              <span class="tag">Tech</span>
+              <span class="step">tech-stack</span><span class="sep">→</span>
+              <span class="step">tech-refine</span>
+              <span class="muted small">· traces to product</span>
+            </div>
+            <div class="row build">
+              <span class="tag">Build</span>
+              <span class="step">breakdown</span><span class="sep">→</span>
+              <span class="step">implement</span><span class="sep">→</span>
+              <span class="step">verify</span>
+            </div>
+          </div>
+          <ul class="small">
+            <li><strong>Artifact-driven:</strong> state lives in markdown, not chat — resumable &amp; reviewable</li>
+            <li><strong>Gated:</strong> nothing advances until it's earned it</li>
+            <li><strong>Human-in-the-loop:</strong> open questions posed as 3 options, you pick</li>
+          </ul>
+        </section>
+
+        <!-- 9. briefing -->
+        <section>
+          <span class="badge product">Product</span>
+          <h2 class="bare"><span class="skill-name">sdd-briefing</span></h2>
+          <p>Capture the raw intent — the seed every epic grows from.</p>
+          <div class="io"><b>∅</b> <span class="arrow">→</span> <b>specs/briefing.md</b></div>
+          <ul class="small">
+            <li>Problem · users · goals · <strong>non-goals</strong> · constraints · success metrics</li>
+            <li>Interviews you; presses on non-goals and <em>outcome-based</em> metrics</li>
+          </ul>
+          <div class="keyidea">Honest and short beats long and vague. Unknowns are parked, not faked.</div>
+        </section>
+
+        <!-- 10. epic -->
+        <section>
+          <span class="badge product">Product</span>
+          <h2 class="bare"><span class="skill-name">sdd-epic</span></h2>
+          <p>Turn the briefing into coherent, right-sized slices of value.</p>
+          <div class="io"><b>briefing.md</b> <span class="arrow">→</span> <b>specs/epics/EPIC-NNN.md</b></div>
+          <ul class="small">
+            <li>Each epic: scope (in/out), capabilities, <strong>Given/When/Then</strong> criteria</li>
+            <li>Good first drafts — not finished epics</li>
+          </ul>
+          <div class="keyidea">Acceptance criteria are written as scenarios — the seed of an executable test.</div>
+        </section>
+
+        <!-- 11. refine -->
+        <section>
+          <span class="badge product">Product</span>
+          <h2 class="bare"><span class="skill-name">sdd-refine</span></h2>
+          <p>Iterate one epic until it clears the <strong>confidence gate</strong>.</p>
+          <div class="io"><b>draft epic</b> <span class="arrow">→</span> <b>ready epic</b></div>
+          <ul class="small">
+            <li>Every open question → <strong>3 options, pros/cons, one (recommend)</strong> — you pick <code>[x]</code></li>
+            <li>Won't mark <em>ready</em> until scope, criteria, questions &amp; risks all pass</li>
+          </ul>
+          <div class="keyidea">Confidence is earned and logged — never faked to pass the gate.</div>
+        </section>
+
+        <!-- 12. reconcile -->
+        <section>
+          <span class="badge product">Product</span>
+          <h2 class="bare"><span class="skill-name">sdd-reconcile</span></h2>
+          <p>Make a ready epic <strong>final</strong> — and consistent.</p>
+          <div class="io"><b>ready epic</b> <span class="arrow">→</span> <b>reconciled (final)</b></div>
+          <ul class="small">
+            <li><em>Vertical:</em> traces to briefing, violates no non-goal, covers the goals</li>
+            <li><em>Horizontal:</em> no overlap / contradictions across epics; consistent terms</li>
+          </ul>
+          <div class="keyidea">Output is the <strong>source of truth</strong> all tech &amp; code must conform to.</div>
+        </section>
+
+        <!-- 13. techstack -->
+        <section>
+          <span class="badge tech">Tech</span>
+          <h2 class="bare"><span class="skill-name">sdd-techstack</span></h2>
+          <p>Choose the stack — only after the product is settled.</p>
+          <div class="io"><b>reconciled epics</b> <span class="arrow">→</span> <b>specs/tech-stack.md</b></div>
+          <ul class="small">
+            <li>Every choice <strong>traces to a product need</strong>; alternatives recorded</li>
+            <li>Genuine forks posed as 3-option decisions</li>
+          </ul>
+          <div class="keyidea">No choice without a driver. Tech may not invent product requirements.</div>
+        </section>
+
+        <!-- 14. tech-refine -->
+        <section>
+          <span class="badge tech">Tech</span>
+          <h2 class="bare"><span class="skill-name">sdd-tech-refine</span></h2>
+          <p>Design the architecture on that stack; refine to a tech gate.</p>
+          <div class="io"><b>tech-stack.md</b> <span class="arrow">→</span> <b>specs/architecture.md</b></div>
+          <ul class="small">
+            <li>Principles, component boundaries, cross-cutting concerns</li>
+            <li>Key decisions as immutable, numbered <strong>ADRs</strong>; <em>guardian-reviewed</em></li>
+          </ul>
+          <div class="keyidea">Decides <strong>how</strong>, never <strong>what</strong>. The product spec still wins.</div>
+        </section>
+
+        <!-- 15. breakdown -->
+        <section>
+          <span class="badge build">Build</span>
+          <h2 class="bare"><span class="skill-name">sdd-breakdown</span></h2>
+          <p>Split a final epic into implementation stories.</p>
+          <div class="io"><b>reconciled epic</b> <span class="arrow">→</span> <b>specs/stories/…</b></div>
+          <ul class="small">
+            <li>Vertical, independently verifiable slices; sequenced; <strong>DoD</strong> per story</li>
+            <li>Open questions <strong>routed by kind</strong> — product ones bounce back upstream</li>
+          </ul>
+          <div class="keyidea">Breakdown decides slicing — it may never silently redefine the product.</div>
+        </section>
+
+        <!-- 16. implement -->
+        <section>
+          <span class="badge build">Build</span>
+          <h2 class="bare"><span class="skill-name">sdd-implement</span></h2>
+          <p>Build each story test-first — <strong>London-school (mockist) TDD</strong>.</p>
+          <div class="io"><b>story</b> <span class="arrow">→</span> <b>code + tests</b></div>
+          <ul class="small">
+            <li><em>Outside-in</em> double loop · <em>need-driven</em> interface discovery</li>
+            <li>Mock <strong>roles you own</strong>; wrap third-party libs behind ports</li>
+            <li><strong>Guardian gate</strong> on every task; does not self-certify</li>
+          </ul>
+          <div class="keyidea">The failing acceptance test <em>is</em> the epic's Given/When/Then.</div>
+        </section>
+
+        <!-- 17. verify -->
+        <section>
+          <span class="badge build">Build</span>
+          <h2 class="bare"><span class="skill-name">sdd-verify</span></h2>
+          <p>Independently confirm the work — separate from who built it.</p>
+          <div class="io"><b>in-progress story</b> <span class="arrow">→</span> <b>verified</b></div>
+          <ul class="small">
+            <li>Runs the suite · <strong>criterion ↔ test ↔ code</strong> traceability · DoD</li>
+            <li><strong>Epic fidelity:</strong> stories must add up to the epic — not just pass alone</li>
+          </ul>
+          <div class="keyidea">Never marks verified on assertion — only on evidence.</div>
+        </section>
+
+        <!-- 18. guardian -->
+        <section>
+          <span class="badge guard">Subagent · cross-cutting</span>
+          <h2 class="bare"><span class="skill-name">architecture-guardian</span></h2>
+          <p>A read-only reviewer that runs through tech-refine, implement &amp; verify.</p>
+          <ul class="small">
+            <li>Checks: <strong>product fidelity → stack → architecture</strong> conformance</li>
+            <li>Reports <code>blocker</code> / <code>warning</code> / <code>note</code> → <strong>PASS</strong> or CHANGES REQUIRED</li>
+          </ul>
+          <div class="keyidea">When spec and code conflict, the <strong>product spec wins</strong> — every time.</div>
+        </section>
+
+        <!-- 19. the interaction loop / gates -->
+        <section>
+          <h2>The loop, mechanically</h2>
+          <div class="pipe small" style="line-height: 1.8">
+            <div class="row"><span class="step">run skill</span><span class="sep">→</span><span class="step">it writes 3-option questions</span><span class="sep">→</span><span class="step">you mark [x]</span><span class="sep">→</span><span class="step">re-run / "continue"</span><span class="sep">↺</span></div>
+          </div>
+          <ul class="small">
+            <li><strong>Idempotent &amp; resumable:</strong> rebuilt from artifacts, not chat memory</li>
+            <li>Held together by anchors: <em>source of truth · Definition of Ready/Done · Given/When/Then · ADRs · ubiquitous language</em></li>
+          </ul>
+          <div class="keyidea">Lose the session, switch machines — the markdown <em>is</em> the state. Nothing is lost.</div>
+        </section>
+
+        <!-- 20. watch out for -->
+        <section>
+          <h2>What to watch out for</h2>
+          <div class="cols tight">
+            <div class="card warn">
+              <h3>Garbage in</h3>
+              <p class="small">A vague spec yields confidently wrong code. Refine before you generate.</p>
+            </div>
+            <div class="card warn">
+              <h3>Over-trust</h3>
+              <p class="small">Unverified output isn't done. Verification is the deliverable.</p>
+            </div>
+            <div class="card warn">
+              <h3>Lost source of truth</h3>
+              <p class="small">Don't let code redefine intent. The product spec outranks everything.</p>
+            </div>
+            <div class="card warn">
+              <h3>Architectural drift</h3>
+              <p class="small">Many agent edits erode boundaries — hence a standing guardian.</p>
+            </div>
+            <div class="card warn">
+              <h3>Rubber-stamping</h3>
+              <p class="small">Review fatigue is real. Gates &amp; traceability force evidence.</p>
+            </div>
+            <div class="card warn">
+              <h3>Scope creep</h3>
+              <p class="small">Agents do more than asked. "No scope drift" is an explicit check.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 21. takeaways -->
+        <section>
+          <h2>Takeaways</h2>
+          <ul>
+            <li>Agentic engineering moves the bottleneck from <em>typing</em> to <strong>specifying &amp; verifying</strong></li>
+            <li>Make the <strong>product the source of truth</strong>; let tech &amp; code trace back to it</li>
+            <li>Reach confidence on <em>what</em> before committing to <em>how</em></li>
+            <li>Keep state in <strong>artifacts</strong>, gate every step, and <strong>verify against the spec</strong></li>
+          </ul>
+          <div class="keyidea">The craft isn't gone — it moves up a level: from code to the specification that generates it.</div>
+        </section>
+
+        <!-- 22. end -->
+        <section class="title">
+          <div class="kicker">Thank you</div>
+          <h1>Questions?</h1>
+          <div class="sub">Spec-driven, agentic, gated — and faithful to the product.</div>
+          <div class="by">#trstd · Know what's real.</div>
+        </section>
+      </div>
+    </div>
+
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        transition: "slide",
+        backgroundTransition: "fade",
+        width: 1280,
+        height: 720,
+        margin: 0.07,
+        plugins: [RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>

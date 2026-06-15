@@ -1,0 +1,14 @@
+{
+  "name": "agentic-engineering-deck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A reveal.js presentation on agentic engineering and the spec-driven development loop, themed in the trstd brand colors.",
+  "scripts": {
+    "start": "http-server . -p 8000 -o -c-1",
+    "serve": "http-server . -p 8000 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "reveal.js": "^5.1.0"
+  }
+}
