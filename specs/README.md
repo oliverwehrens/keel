@@ -35,6 +35,27 @@ The tech phases decide *how* and must trace to it; they never redefine *what*.
 > The `architecture-guardian` subagent reviews technical work and implementation throughout
 > (tech-refine, implement, verify), not just one phase.
 
+## The interaction loop
+
+Every refining phase (`sdd-refine`, `sdd-reconcile`, `sdd-techstack`, `sdd-tech-refine`,
+`sdd-breakdown`) works the same way, and **all state lives in the artifacts — never only in
+chat**:
+
+1. **Run** the skill. It does what it can, then for any decision that is yours it writes the
+   open question into the artifact as exactly three options (`[ ]`, pros/cons, one marked
+   `(recommend)`) and hands back.
+2. **Decide** — either answer inline in the same session, or mark your pick with `[x]` in the
+   file (and add notes / edit freely).
+3. **Continue** — say "continue", or just re-invoke the skill. Because the state is the files
+   (status front-matter + which boxes are `[x]`), it re-reads, folds your picks in as
+   `Decision:` records, and moves on. Re-running is safe and idempotent: it resumes from the
+   artifact, not from memory, so a new session or lost context never loses progress.
+4. **Repeat** until no open questions remain and the phase's gate / "done when" is met; then it
+   advances the status and points to the next phase.
+
+Routing still applies: a phase only decides what is genuinely its own (e.g. `sdd-breakdown`
+decides slicing, but a product question goes back to `sdd-refine`).
+
 ## Layout
 
 ```
