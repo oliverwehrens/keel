@@ -168,3 +168,22 @@ The skills lean on a few fixed reference points; keep using these terms consiste
   `sdd-implement` builds.
 - **ADR** — immutable, numbered architecture decisions in `architecture.md`.
 - **Ubiquitous language** — the `glossary.md` term registry.
+
+## Model selection
+
+Each skill pins a Claude model in its front-matter (`model:`) — a turn-scoped override sized to the
+work. Judgment-heavy phases use the strongest model; structured generation and coding use a faster,
+cheaper one. Set the session model with `/model` if you'd rather run one model throughout.
+
+| Model    | Skills                                                        | Why                                                                |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `opus`   | refine · reconcile · techstack · tech-refine · adopt · impact | Ambiguity, hard-to-reverse tradeoffs, cross-artifact judgment, inferring intent from code |
+| `sonnet` | briefing · epic · breakdown · implement · verify · audit      | Structured capture, drafting, decomposition, coding, checking      |
+
+The **`architecture-guardian`** subagent is pinned to `opus` in its own front-matter, so its
+conformance review is always done by the strongest model — even when `implement` / `verify` /
+`audit` run on `sonnet`. That's the best cost/quality split: cheap generation, strong gate.
+
+`haiku` isn't used as a primary model here (every phase carries judgment); `fable` is a viable
+alternative for the heaviest reasoning skills if you prefer the newest model. Bump `breakdown` or
+`implement` to `opus` for unusually gnarly epics or legacy code.

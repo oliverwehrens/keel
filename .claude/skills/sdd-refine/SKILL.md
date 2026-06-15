@@ -1,5 +1,6 @@
 ---
 name: sdd-refine
+model: opus
 description: Iterate a single epic until it clears the confidence gate and can be marked ready. Use when an epic is draft/refining and the user wants to resolve open questions, tighten scope and acceptance criteria, and build confidence before breaking it down or implementing.
 ---
 

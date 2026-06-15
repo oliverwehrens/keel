@@ -1,5 +1,6 @@
 ---
 name: sdd-briefing
+model: sonnet
 description: Start or refine the product briefing (specs/briefing.md) — the entry artifact of spec-driven development. Use when the user wants to capture a new idea, write a briefing, kick off a project, or sharpen the problem/goals/constraints before any epics exist.
 ---
 

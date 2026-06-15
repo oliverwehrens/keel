@@ -1,5 +1,6 @@
 ---
 name: sdd-tech-refine
+model: opus
 description: Design and refine the architecture on the chosen stack until it clears the tech confidence gate, staying faithful to the product spec. Use after sdd-techstack and before sdd-breakdown. Produces and refines specs/architecture.md and uses the architecture-guardian subagent to review.
 ---
 

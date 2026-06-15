@@ -1,5 +1,6 @@
 ---
 name: sdd-adopt
+model: opus
 description: Baseline an existing (brownfield) codebase into the spec — reverse-engineer the briefing, epics, tech-stack, architecture, and glossary from the real code, mark them inferred, and ratify with a human before they become the source of truth. Use to onboard a repo that has code but thin or no specs, or to spec just the area you are about to change.
 ---
 

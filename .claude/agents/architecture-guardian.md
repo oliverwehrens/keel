@@ -2,7 +2,7 @@
 name: architecture-guardian
 description: Reviews technical artifacts and implementation against the architecture guidelines, the tech stack, and the product spec, then reports conformance findings. Use during sdd-tech-refine and during implementation to check that work stays faithful to specs/architecture.md, specs/tech-stack.md, and the product source of truth.
 tools: Read, Grep, Glob
-model: inherit
+model: opus
 ---
 
 # Architecture guardian

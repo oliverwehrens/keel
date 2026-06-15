@@ -1,5 +1,6 @@
 ---
 name: sdd-implement
+model: sonnet
 description: Implement a story test-first in the London (mockist) TDD style — outside-in, need-driven, mocking only owned collaborators — conforming to the architecture, tech stack, and product spec. Use after sdd-breakdown when a story is ready to build.
 ---
 

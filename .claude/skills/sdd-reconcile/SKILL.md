@@ -1,5 +1,6 @@
 ---
 name: sdd-reconcile
+model: opus
 description: Reconcile a ready epic against the briefing and its sibling epics, resolve inconsistencies, and mark it final (reconciled). Use after sdd-refine has brought an epic to `ready` and before breaking it down — to ensure the epic set is consistent, fully covers the briefing, and has no overlaps or contradictions.
 ---
 

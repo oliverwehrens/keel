@@ -1,5 +1,6 @@
 ---
 name: sdd-audit
+model: sonnet
 description: Detect drift between the spec and the actual code — undocumented code (no epic), unbuilt spec (epics/criteria with no code or tests), architecture violations, stale traces, and terminology drift. Use periodically on a living project, or before iterating in an area, to keep the product spec a true source of truth.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: sdd-impact
+model: opus
 description: Predict the blast radius of a proposed change before you make it — which product epics, tech decisions, stories, tests, and code it would affect. Use before amending an epic, refactoring, changing an ADR or tech-stack choice, or renaming a glossary term, to size, sequence, and de-risk the change.
 ---
 

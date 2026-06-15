@@ -1,5 +1,6 @@
 ---
 name: sdd-epic
+model: sonnet
 description: Draft one or more epics from the product briefing into specs/epics/. Use after a briefing exists and the user wants to turn intent into structured, scoped epics. Each epic is a coherent slice of value with acceptance criteria.
 ---
 

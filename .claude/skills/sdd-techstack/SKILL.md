@@ -1,5 +1,6 @@
 ---
 name: sdd-techstack
+model: opus
 description: Choose the project tech stack after product refinement is done, recording each choice traced to a product need in specs/tech-stack.md. Use once epics are reconciled and before any architecture or breakdown — to decide languages, frameworks, datastores, and infra.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: sdd-verify
+model: sonnet
 description: Verify a completed story (or epic) against its acceptance criteria and Definition of Done — checking traceability (criterion ↔ test ↔ code), conformance, and that the tests actually run green. Use after sdd-implement; marks the story verified.
 ---
 

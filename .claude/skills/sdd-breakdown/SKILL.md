@@ -1,5 +1,6 @@
 ---
 name: sdd-breakdown
+model: sonnet
 description: Break a ready epic into implementation stories under specs/stories/. Use when an epic has cleared the confidence gate (status ready) and the user wants concrete, independently implementable and verifiable work items with sequencing.
 ---
 
