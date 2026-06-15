@@ -47,3 +47,10 @@ Other stories or epics that must land first. Reference IDs.
 What this story explicitly does not cover (so reviewers don't expect it).
 
 - …
+
+## Open questions
+
+Implementation-level unknowns to resolve during `sdd-implement` (test-first). Anything that
+touches scope or acceptance criteria belongs back in the epic via `sdd-refine`, not here.
+
+- …

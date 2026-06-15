@@ -47,6 +47,23 @@ scheme and the story template.
    entry listing the story IDs created, and confirm every epic acceptance criterion maps
    to ≥1 story.
 
+## Handling open questions
+
+Breakdown runs on a `reconciled` epic and a `ready` architecture, so big unknowns should already
+be resolved. Route anything that surfaces by its kind — never absorb it silently:
+
+- **Product / scope / acceptance ambiguity** → stop and send it back to `sdd-refine` (or
+  `sdd-reconcile`). The epic is the source of truth; breakdown may not redefine it. A real scope
+  question here means the epic wasn't as `ready` as assumed.
+- **Architecture / stack ambiguity** → send it back to `sdd-tech-refine` (record it there as an ADR).
+- **Decomposition choices** (how to slice, sequencing, which story owns a capability) → these are
+  breakdown's own decisions. Resolve them with the three-option format from `sdd-refine`: exactly
+  three viable slicings, pros and cons, the one you recommend marked `(recommend)`, and let the
+  user pick with `[x]`.
+- **Genuine implementation detail** that doesn't affect scope or the slice → capture it as a
+  story-level *Open question* for `sdd-implement` to resolve test-first; never block the breakdown
+  on it.
+
 ## Done when
 
 - `specs/stories/EPIC-NNN/` contains the stories, each following the template with a
