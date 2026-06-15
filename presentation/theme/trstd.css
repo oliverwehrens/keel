@@ -18,9 +18,11 @@
 
   --r-background-color: var(--navy);
   --r-main-color: var(--text);
-  --r-main-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* one sans family for all text — headings and body share it, so a slide never mixes families */
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --r-main-font: var(--font-sans);
   --r-main-font-size: 30px;
-  --r-heading-font: "Inter", system-ui, sans-serif;
+  --r-heading-font: var(--font-sans);
   --r-heading-color: #ffffff;
   --r-heading-text-transform: none;
   --r-heading-text-shadow: none;
@@ -34,7 +36,9 @@
   --r-link-color-hover: var(--cyan-light);
   --r-selection-background-color: var(--cyan);
   --r-selection-color: var(--navy);
-  --r-code-font: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-mono: "JetBrains Mono Variable", "SFMono-Regular", Menlo, Consolas, monospace;
+  /* badges, skill names, io chips, pipeline use the sans family too — only literal <code> is mono */
+  --r-code-font: var(--font-sans);
 }
 
 /* ---------- Backdrop ---------- */
@@ -246,7 +250,7 @@
 .pipe .sot { color: var(--gold); font-weight: 700; }
 
 /* ---------- Code ---------- */
-.reveal code, code { color: var(--cyan-light); font-family: var(--r-code-font); }
+.reveal code, code { color: var(--cyan-light); font-family: var(--font-mono); }
 .reveal pre code {
   background: var(--navy-panel);
   border: 1px solid var(--navy-line);
