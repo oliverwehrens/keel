@@ -14,6 +14,9 @@ scheme and the story template.
   `sdd-reconcile` first so the epic is consistent with the briefing and its siblings; if it
   is `draft`/`refining`, recommend `sdd-refine`. Breaking down a soft or unreconciled epic
   produces soft stories. (If the user insists, warn once, then proceed.)
+- `specs/tech-stack.md` is `accepted` and `specs/architecture.md` is `ready`. If not,
+  recommend `sdd-techstack` / `sdd-tech-refine` first so stories can carry concrete,
+  conformant implementation notes. (Warn once, then proceed if the user insists.)
 
 ## Procedure
 
@@ -36,7 +39,8 @@ scheme and the story template.
    `specs/stories/EPIC-NNN/` as `EPIC-NNN-SMM-<slug>.md`:
    - Assign `EPIC-NNN-SMM` IDs sequentially within the epic.
    - Derive acceptance criteria from the parent epic, narrowed to the slice.
-   - Fill *Implementation notes* with enough to start; defer only deliberately.
+   - Fill *Implementation notes* with enough to start, grounded in `specs/tech-stack.md` and
+     `specs/architecture.md` (name the components/interfaces involved); defer only deliberately.
 
 5. **Close the loop on the epic.** Set the epic's `status: broken-down`, add a Changelog
    entry listing the story IDs created, and confirm every epic acceptance criterion maps

@@ -7,20 +7,27 @@ the chat; the skills keep the spec artifacts in `specs/` consistent and reviewab
 ## Pipeline
 
 ```
-briefing  ─►  epics  ─►  refine  ─►  reconcile  ─►  breakdown  ─►  (implement · verify)
+PRODUCT:  briefing ─► epics ─► refine ─► reconcile
+TECH:     tech-stack ─► tech-refine
+BUILD:    breakdown ─► (implement · verify)
 ```
 
-| Phase     | Skill            | Produces                          |
-| --------- | ---------------- | --------------------------------- |
-| Briefing  | `/sdd-briefing`  | `specs/briefing.md`               |
-| Epics     | `/sdd-epic`      | `specs/epics/EPIC-NNN-*.md`       |
-| Refine    | `/sdd-refine`    | a `ready` epic (confidence gate)  |
-| Reconcile | `/sdd-reconcile` | a `reconciled` (final) epic       |
-| Breakdown | `/sdd-breakdown` | `specs/stories/EPIC-NNN/*.md`     |
+The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
+The tech phases decide *how* and trace back to it — they never redefine *what*.
 
-This is the **spine**. Planned next phases: tech-stack definition, an
-**architecture-guardian subagent** that reviews work against guidelines, and the
-implement/verify phases.
+| Phase      | Skill              | Produces                                     |
+| ---------- | ------------------ | -------------------------------------------- |
+| Briefing   | `/sdd-briefing`    | `specs/briefing.md`                          |
+| Epics      | `/sdd-epic`        | `specs/epics/EPIC-NNN-*.md`                  |
+| Refine     | `/sdd-refine`      | a `ready` epic (confidence gate)             |
+| Reconcile  | `/sdd-reconcile`   | a `reconciled` (final) epic                  |
+| Tech stack | `/sdd-techstack`   | `specs/tech-stack.md`                        |
+| Tech refine| `/sdd-tech-refine` | `specs/architecture.md` (guardian-reviewed)  |
+| Breakdown  | `/sdd-breakdown`   | `specs/stories/EPIC-NNN/*.md`                |
+
+The **`architecture-guardian`** subagent (`.claude/agents/`) reviews technical work and
+implementation against the product spec, stack, and architecture. Planned next phases:
+implement and verify.
 
 ## How it works
 
@@ -38,7 +45,10 @@ implement/verify phases.
 3. `/sdd-refine` — iterate an epic until it clears the confidence gate (`ready`).
 4. `/sdd-reconcile` — reconcile the ready epic against the briefing and siblings; mark it
    `reconciled` (final).
-5. `/sdd-breakdown` — split a reconciled epic into implementation stories.
+5. `/sdd-techstack` — choose the tech stack, each decision traced to a product need.
+6. `/sdd-tech-refine` — design and refine the architecture on that stack (guardian-reviewed).
+7. `/sdd-breakdown` — split a reconciled epic into implementation stories grounded in the
+   stack and architecture.
 
 The key idea: **nothing advances until it's earned it.** `sdd-refine` will not mark an
 epic `ready` until scope, acceptance criteria, open questions, and risks all pass the
