@@ -32,8 +32,10 @@ Given an artifact, a story, or a diff to review:
 - **Architecture conformance** — does it honor the principles, component boundaries, and
   implementation guidelines? Call out boundary violations (e.g. domain logic importing a
   framework) and contradicted key decisions.
-- **Consistency** — does it use the established patterns and terminology rather than spawning
-  a parallel one?
+- **Consistency & language** — does it use established patterns and the `specs/glossary.md`
+  terms rather than spawning a parallel vocabulary?
+- **Traceability** — for a story or diff, does each acceptance criterion have a test that names
+  it (criterion ↔ test ↔ code)?
 
 ## How to report
 

@@ -21,7 +21,7 @@ Set the epic's `status: refining`, then repeat until the gate is met:
 1. **Critique the epic against the gate.** For each gate item, state pass or fail:
    - Scope: both in/out explicit, no "TBD"?
    - Open questions: each answered or deliberately deferred with owner + rationale?
-   - Acceptance criteria: each observable and testable?
+   - Acceptance criteria: each a testable Given/When/Then scenario?
    - Risks & dependencies: listed?
    - Confidence: honestly 4–5 of 5?
 

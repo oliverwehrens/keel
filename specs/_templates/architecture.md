@@ -28,12 +28,18 @@ A diagram-in-words is fine.
 
 - …
 
-## Key decisions
+## Key decisions (ADRs)
 
-Significant, hard-to-reverse choices and why (data model, sync vs async, auth model). Each
-traces to a product need.
+Significant, hard-to-reverse choices recorded as numbered, immutable Architecture Decision
+Records. Never edit a past ADR's decision — supersede it with a new one. Each traces to a
+product need.
 
-- …
+### ADR-001 — <title>
+
+- **Status:** proposed | accepted | superseded by ADR-NNN
+- **Context:** the forces at play and the product need driving this.
+- **Decision:** what we chose.
+- **Consequences:** trade-offs — what this makes easy, what it makes hard.
 
 ## Cross-cutting concerns
 

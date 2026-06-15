@@ -10,7 +10,7 @@ implementation must conform to.
 ```
 PRODUCT:  briefing ─► epics ─► refine ─► reconcile
 TECH:     tech-stack ─► tech-refine
-BUILD:    breakdown ─► (implement ─► verify)
+BUILD:    breakdown ─► implement ─► verify
 ```
 
 The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
@@ -27,9 +27,13 @@ The tech phases decide *how* and must trace to it; they never redefine *what*.
    to the tech gate in `architecture.md`; the `architecture-guardian` subagent reviews it.
 7. **Breakdown** (`sdd-breakdown`) — split a `reconciled` epic into implementation stories,
    now grounded in the stack and architecture.
+8. **Implement** (`sdd-implement`) — build each story test-first, London-school (mockist) TDD,
+   outside-in, conforming to the architecture and stack.
+9. **Verify** (`sdd-verify`) — independently check each story against its acceptance criteria
+   and Definition of Done; mark it `verified`.
 
-> Later phases (implement, verify) plug in after breakdown and are not part of this spine
-> yet. The `architecture-guardian` subagent also reviews implementation, not just tech-refine.
+> The `architecture-guardian` subagent reviews technical work and implementation throughout
+> (tech-refine, implement, verify), not just one phase.
 
 ## Layout
 
@@ -41,6 +45,7 @@ specs/
     EPIC-001-<slug>.md
   tech-stack.md        ← chosen stack (after reconcile)
   architecture.md      ← architecture / guidelines (refined by sdd-tech-refine)
+  glossary.md          ← ubiquitous language (shared term definitions)
   stories/
     EPIC-001/
       EPIC-001-S01-<slug>.md
@@ -50,6 +55,7 @@ specs/
     story.md
     tech-stack.md
     architecture.md
+    glossary.md
 ```
 
 The `architecture-guardian` subagent lives at `.claude/agents/architecture-guardian.md` and
@@ -73,8 +79,8 @@ Every epic and story carries a `status` in its front-matter:
 | `ready`        | cleared the confidence gate; ready to reconcile                |
 | `reconciled`   | consistent with briefing & sibling epics; final, ready to split |
 | `broken-down`  | epic has been split into stories                               |
-| `in-progress`  | implementation under way (later phase)                         |
-| `verified`     | implementation verified against acceptance criteria (later)    |
+| `in-progress`  | implementation under way (`sdd-implement`)                     |
+| `verified`     | passed `sdd-verify` against acceptance criteria + DoD          |
 
 ### Tech artifacts
 
@@ -102,3 +108,25 @@ Every epic and story carries a `status` in its front-matter:
 
 Each refine pass appends a dated entry to the epic's **Changelog** so the reasoning
 trail is preserved.
+
+## Definition of Done & traceability
+
+A story is `verified` only when `sdd-verify` confirms its **Definition of Done** (in the
+story template) and full **traceability**:
+
+- every acceptance criterion (Given/When/Then) has a test that names it, and
+- every such test traces to exactly one criterion — criterion ↔ test ↔ code.
+
+## Semantic anchors
+
+The skills lean on a few fixed reference points; keep using these terms consistently:
+
+- **Source of truth** — the product description (`briefing.md` + reconciled epics). Tech and
+  code conform to it, never the reverse.
+- **Definition of Ready** — the confidence gate above that lets an epic become `ready`.
+- **Definition of Done** — the story checklist `sdd-verify` enforces.
+- **Given/When/Then** — the form of every acceptance criterion; it becomes the outer test.
+- **London-school (mockist) TDD** — outside-in, need-driven, mock only owned roles; how
+  `sdd-implement` builds.
+- **ADR** — immutable, numbered architecture decisions in `architecture.md`.
+- **Ubiquitous language** — the `glossary.md` term registry.

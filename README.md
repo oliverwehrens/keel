@@ -9,7 +9,7 @@ the chat; the skills keep the spec artifacts in `specs/` consistent and reviewab
 ```
 PRODUCT:  briefing ─► epics ─► refine ─► reconcile
 TECH:     tech-stack ─► tech-refine
-BUILD:    breakdown ─► (implement · verify)
+BUILD:    breakdown ─► implement ─► verify
 ```
 
 The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
@@ -24,10 +24,13 @@ The tech phases decide *how* and trace back to it — they never redefine *what*
 | Tech stack | `/sdd-techstack`   | `specs/tech-stack.md`                        |
 | Tech refine| `/sdd-tech-refine` | `specs/architecture.md` (guardian-reviewed)  |
 | Breakdown  | `/sdd-breakdown`   | `specs/stories/EPIC-NNN/*.md`                |
+| Implement  | `/sdd-implement`   | code + tests (London-school TDD)             |
+| Verify     | `/sdd-verify`      | a `verified` story (criteria + DoD)          |
 
 The **`architecture-guardian`** subagent (`.claude/agents/`) reviews technical work and
-implementation against the product spec, stack, and architecture. Planned next phases:
-implement and verify.
+implementation against the product spec, stack, and architecture throughout. Implementation is
+**London-school (mockist) TDD**, outside-in, with acceptance criteria written as Given/When/Then.
+A `specs/glossary.md` keeps terminology consistent from spec to code.
 
 ## How it works
 
@@ -49,7 +52,10 @@ implement and verify.
 6. `/sdd-tech-refine` — design and refine the architecture on that stack (guardian-reviewed).
 7. `/sdd-breakdown` — split a reconciled epic into implementation stories grounded in the
    stack and architecture.
+8. `/sdd-implement` — build each story test-first (London-school TDD), outside-in.
+9. `/sdd-verify` — check each story against its acceptance criteria and Definition of Done.
 
 The key idea: **nothing advances until it's earned it.** `sdd-refine` will not mark an
 epic `ready` until scope, acceptance criteria, open questions, and risks all pass the
-gate — so breakdown and implementation start from solid ground.
+gate — and `sdd-verify` will not mark a story `verified` until its tests, traceability, and
+Definition of Done all pass. So every phase starts from solid ground.

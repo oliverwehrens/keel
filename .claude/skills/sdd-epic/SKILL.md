@@ -32,7 +32,8 @@ Turn `specs/briefing.md` into one or more epics under `specs/epics/`. Read
 4. **Write each epic** by copying `specs/_templates/epic.md` and filling every section.
    - Set front-matter: `id`, `title`, `status: draft`, `confidence: 1`, dates.
    - Link the briefing goal(s) each epic serves in *Motivation*.
-   - Acceptance criteria must be observable/testable — no "works well".
+   - Write each acceptance criterion as a Given/When/Then scenario — observable and testable.
+   - Capture any new domain terms in `specs/glossary.md` so language stays consistent.
    - It is fine to leave honest `Open questions`; that is what `sdd-refine` resolves.
 
 5. **Don't over-refine here.** The job is good first drafts, not finished epics. Resist

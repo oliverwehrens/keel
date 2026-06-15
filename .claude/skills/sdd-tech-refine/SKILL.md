@@ -32,7 +32,7 @@ truth** — this decides *how*, never *what*.
 
 4. **Tech confidence gate** — set `status: ready` only when **all** hold:
    - Component boundaries and their interactions are explicit.
-   - Every key decision traces to a product need and respects the tech stack.
+   - Every key decision is recorded as an ADR, traces to a product need, and respects the stack.
    - Each cross-cutting concern has a defined approach.
    - Implementation guidelines are concrete enough for the guardian to check code against.
    - No open technical question is unresolved (or each is deferred with owner + rationale).

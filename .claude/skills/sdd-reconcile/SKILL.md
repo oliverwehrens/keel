@@ -38,7 +38,8 @@ Read the other epics in `specs/epics/`, then verify:
 - **Consistent dependencies** — a dependency this epic declares is declared (and not
   contradicted) by the other side.
 - **No contradictions** — acceptance criteria across epics don't conflict.
-- **Consistent terms** — the same concept uses the same name across epics; align any drift.
+- **Consistent terms** — the same concept uses the same name across epics; align drift against
+  `specs/glossary.md` and add any missing terms to it.
 
 ## Resolving what you find
 

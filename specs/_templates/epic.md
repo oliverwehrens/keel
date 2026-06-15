@@ -39,9 +39,10 @@ What the user can do when this is done. Prefer `As a <role>, I can <capability> 
 
 ## Acceptance criteria
 
-Observable, testable conditions. Each must be markable pass/fail by a reviewer.
+Each criterion is a **Given/When/Then** scenario — observable and testable, and the seed of an
+outer (acceptance) test at implementation. A reviewer must be able to mark it pass/fail.
 
-- [ ] …
+- [ ] **Given** <context> **when** <action> **then** <observable outcome>
 
 ## Dependencies
 

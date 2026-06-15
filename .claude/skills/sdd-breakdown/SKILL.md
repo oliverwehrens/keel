@@ -38,7 +38,8 @@ scheme and the story template.
 4. **Write the stories.** For each, copy `specs/_templates/story.md` into
    `specs/stories/EPIC-NNN/` as `EPIC-NNN-SMM-<slug>.md`:
    - Assign `EPIC-NNN-SMM` IDs sequentially within the epic.
-   - Derive acceptance criteria from the parent epic, narrowed to the slice.
+   - Derive acceptance criteria as Given/When/Then, narrowed to the slice; keep the story's
+     Definition of Done checklist.
    - Fill *Implementation notes* with enough to start, grounded in `specs/tech-stack.md` and
      `specs/architecture.md` (name the components/interfaces involved); defer only deliberately.
 

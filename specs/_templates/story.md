@@ -17,9 +17,19 @@ implementable and verifiable.
 
 ## Acceptance criteria
 
-Inherited/derived from the parent epic, narrowed to this slice. Each testable.
+Derived from the parent epic, narrowed to this slice. Each a **Given/When/Then** scenario and the
+seed of an outer acceptance test. Record the test that covers it for traceability.
 
-- [ ] …
+- [ ] **Given** … **when** … **then** … — _test:_ `<test name once written>`
+
+## Definition of Done
+
+- [ ] Every acceptance criterion above has a passing test that names it (criterion ↔ test).
+- [ ] Implemented London-style: collaborators behind owned ports; no third-party mocks.
+- [ ] Conforms to `specs/architecture.md` (boundaries, guidelines) and `specs/tech-stack.md`.
+- [ ] New domain terms added to `specs/glossary.md`.
+- [ ] `architecture-guardian` returns PASS on the change.
+- [ ] Full test suite green.
 
 ## Implementation notes
 
