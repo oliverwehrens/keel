@@ -22,18 +22,31 @@ said so; run it.
    test that exercises it, and every such test names the criterion. Flag any criterion with no
    test, or any test that asserts nothing meaningful.
 
-3. **Definition of Done.** Walk the story's DoD checklist (see `specs/README.md`). Each item is
+3. **Story acceptance criteria met.** Each Given/When/Then criterion on the story is demonstrably
+   satisfied by its test(s).
+
+4. **Epic fidelity — check against the product epic, not just the story.** The story's criteria
+   correctly derive from and serve the parent epic's acceptance criteria, and the delivered
+   behaviour advances the epic's intent without contradicting it. The epic (with the briefing) is
+   the source of truth; a story that passes its own criteria but drifts from the epic fails here.
+
+5. **Definition of Done.** Walk the story's DoD checklist (see `specs/README.md`). Each item is
    pass/fail with evidence, not assertion.
 
-4. **Conformance.** Run the `architecture-guardian` subagent over the change for product fidelity,
+6. **Conformance.** Run the `architecture-guardian` subagent over the change for product fidelity,
    stack, and architecture conformance. Any blocker fails verification.
 
-5. **No scope drift.** The implementation does only what the story/epic require — nothing the
+7. **No scope drift.** The implementation does only what the story and epic require — nothing the
    product spec doesn't sanction.
 
 ## Outcome
 
-- **Pass** — set the story `status: verified` and record in the story which criteria/DoD items
-  were checked and how. When all of an epic's stories are `verified`, mark the epic `verified`.
-- **Fail** — list the specific failures (criterion, DoD item, or guardian blocker) and hand back
-  to `sdd-implement`. Never mark `verified` while a failure is open.
+- **Story pass** — set the story `status: verified` and record which criteria/DoD items were
+  checked and how.
+- **Epic rollup** — when every story under an epic is `verified`, verify the **epic as a whole**:
+  each epic acceptance criterion (Given/When/Then) is demonstrably met by the union of its
+  stories, with no uncovered criterion. Only then mark the epic `verified`. If an epic criterion
+  is unmet or uncovered, the epic is not verified — raise it (likely a missing story via
+  `sdd-breakdown`).
+- **Fail** — list the specific failures (criterion, epic-fidelity gap, DoD item, or guardian
+  blocker) and hand back to `sdd-implement`. Never mark `verified` while a failure is open.
