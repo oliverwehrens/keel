@@ -43,8 +43,17 @@
   background: radial-gradient(1200px 800px at 80% -10%, #0a2466 0%, var(--navy) 55%);
 }
 
+.reveal { color: var(--r-main-color); }
+
 .reveal .slides { text-align: left; }
 .reveal .slides section { height: 100%; }
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 { color: var(--r-heading-color); }
 
 .reveal h1,
 .reveal h2,
