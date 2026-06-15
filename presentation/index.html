@@ -333,6 +333,20 @@
           <div class="keyidea">Same gates, same source-of-truth discipline — established descriptively first.</div>
         </section>
 
+        <!-- sdd-adopt -->
+        <section>
+          <span class="badge life">Brownfield</span>
+          <h2 class="bare"><span class="skill-name">sdd-adopt</span></h2>
+          <p>Reverse-engineer the spec from existing code.</p>
+          <div class="io"><b>code</b> <span class="arrow">→</span> <b>inferred spec</b> <span class="arrow">→</span> <b>ratify</b></div>
+          <ul class="small">
+            <li><strong>Just-in-time:</strong> baseline only the slice you'll touch</li>
+            <li>Emits inferred briefing, as-is epics, tech-stack, architecture (retro ADRs), glossary</li>
+            <li><strong>Ratification gate:</strong> <code>inferred → ratified</code> before it's trusted</li>
+          </ul>
+          <div class="keyidea">Code → spec → code. Descriptive first; nothing is truth until a human signs off.</div>
+        </section>
+
         <!-- Beyond greenfield: iteration -->
         <section>
           <span class="badge guard">Beyond greenfield</span>
@@ -346,6 +360,34 @@
             <li><strong>sdd-audit</strong> catches spec ↔ code drift before you build</li>
           </ul>
           <div class="keyidea">The loop is a cycle, not a waterfall. The spec stays the living source of truth.</div>
+        </section>
+
+        <!-- sdd-impact -->
+        <section>
+          <span class="badge life">Lifecycle</span>
+          <h2 class="bare"><span class="skill-name">sdd-impact</span></h2>
+          <p>Predict the blast radius of a change <em>before</em> you make it.</p>
+          <div class="io"><b>proposed change</b> <span class="arrow">→</span> <b>impact report</b></div>
+          <ul class="small">
+            <li>Traverses <em>across</em> (sibling epics) · <em>up</em> (code → product epics) · <em>down</em> (stories/tests)</li>
+            <li>Leads with <strong>product epics affected</strong> — contradictions flagged first</li>
+            <li>Feeds non-regression &amp; sequencing · read-only</li>
+          </ul>
+          <div class="keyidea">A predictive reconcile — know the ripple before you touch anything.</div>
+        </section>
+
+        <!-- sdd-audit -->
+        <section>
+          <span class="badge life">Lifecycle</span>
+          <h2 class="bare"><span class="skill-name">sdd-audit</span></h2>
+          <p>Detect spec ↔ code drift on a living project.</p>
+          <div class="io"><b>codebase slice</b> <span class="arrow">→</span> <b>drift report</b></div>
+          <ul class="small">
+            <li>Undocumented code · unbuilt spec · arch violations · stale traces · glossary drift</li>
+            <li><strong>Reports &amp; routes</strong> to the owning phase — never fixes silently</li>
+            <li>Verdict: <code>IN SYNC</code> / <code>DRIFT FOUND</code></li>
+          </ul>
+          <div class="keyidea">Keeps the source of truth actually true over time.</div>
         </section>
 
         <!-- 19. the interaction loop / gates -->

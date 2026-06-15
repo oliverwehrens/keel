@@ -113,6 +113,7 @@
 .badge.tech { color: var(--gold); }
 .badge.build { color: var(--cyan-light); }
 .badge.guard { color: #ff9d9d; }
+.badge.life { color: #b9a3ff; }
 
 /* ---- Skill slide ---- */
 .skill-name {
