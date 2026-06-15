@@ -35,6 +35,9 @@ The tech phases decide *how* and must trace to it; they never redefine *what*.
 > The `architecture-guardian` subagent reviews technical work and implementation throughout
 > (tech-refine, implement, verify), not just one phase.
 
+**Brownfield?** A repo that already has code starts with **`sdd-adopt`** — reverse-engineer the
+spec from the code and ratify it — then rejoins the loop. See `docs/brownfield.md`.
+
 ## The interaction loop
 
 Every refining phase (`sdd-refine`, `sdd-reconcile`, `sdd-techstack`, `sdd-tech-refine`,
@@ -108,6 +111,16 @@ Every epic and story carries a `status` in its front-matter:
 - `tech-stack.md` — `draft` → `accepted` (`sdd-techstack`).
 - `architecture.md` — `draft` → `refining` → `ready` (`sdd-tech-refine`'s tech gate),
   reviewed by the `architecture-guardian` subagent. The product spec always outranks it.
+
+### Origin — authored vs inferred (brownfield)
+
+Every spec artifact also carries an `origin` in front-matter, orthogonal to `status`:
+
+- `authored` (default) — written intent-first (greenfield).
+- `inferred` — reverse-engineered from existing code by `sdd-adopt`; a guess, not yet trusted.
+- `ratified` — a human has confirmed an inferred artifact; it may now serve as source of truth.
+
+Nothing downstream may rely on an `origin: inferred` artifact. See `docs/brownfield.md`.
 
 ## Confidence gate
 

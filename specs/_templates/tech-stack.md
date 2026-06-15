@@ -1,6 +1,7 @@
 ---
 artifact: tech-stack
 status: draft            # draft | accepted
+origin: authored         # authored | inferred | ratified (brownfield, see docs/brownfield.md)
 source_of_truth: ./briefing.md   # the product spec governs; tech conforms, never redefines
 created: <YYYY-MM-DD>
 updated: <YYYY-MM-DD>

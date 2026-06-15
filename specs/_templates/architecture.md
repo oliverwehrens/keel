@@ -1,6 +1,7 @@
 ---
 artifact: architecture
 status: draft            # draft | refining | ready (tech confidence gate)
+origin: authored         # authored | inferred | ratified (brownfield, see docs/brownfield.md)
 confidence: 1            # 1–5, see the tech gate in sdd-tech-refine
 source_of_truth: ./briefing.md
 tech_stack: ./tech-stack.md

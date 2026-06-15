@@ -65,6 +65,22 @@ it is considered done. This is mandatory, not optional:
 Each acceptance criterion maps to the acceptance test that covers it — fill the `_test:_`
 reference in the story as tests are written.
 
+## Brownfield / legacy code
+
+When implementing against existing code that lacks test seams, adapt the loop — don't abandon it:
+
+- **Pin before you change.** Write **characterization tests** that capture current behaviour as-is
+  (even if it looks wrong) before modifying, so you have a safety net. This is also how an adopted
+  as-is epic earns its way to `verified`.
+- **Find a seam, then inject.** Introduce the smallest seam (parameterize, extract, wrap) to get
+  the code under test; only then mock the owned collaborators as usual.
+- **Add, don't rewrite.** Prefer **sprout** (a new method/class TDD'd in isolation) and **wrap**
+  (wrap the existing call) over rewriting working code. Use the **strangler fig** pattern for larger
+  replacements — grow the new path beside the old, then retire the old.
+- **Respect the ratified as-is spec.** Changes still conform to the adopted architecture and epics
+  and are guardian-reviewed; new decisions become ADRs. If the code contradicts a ratified epic,
+  that is drift — surface it, don't silently "fix" the spec.
+
 ## Done
 
 When every criterion's acceptance test (and its unit tests) is green **and** the

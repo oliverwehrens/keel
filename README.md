@@ -59,3 +59,11 @@ The key idea: **nothing advances until it's earned it.** `sdd-refine` will not m
 epic `ready` until scope, acceptance criteria, open questions, and risks all pass the
 gate — and `sdd-verify` will not mark a story `verified` until its tests, traceability, and
 Definition of Done all pass. So every phase starts from solid ground.
+
+## Brownfield projects
+
+Already have code? Start with **`/sdd-adopt`**: it reverse-engineers the spec (briefing, epics,
+tech-stack, architecture, glossary) from the existing code, marks it `inferred`, and has you
+**ratify** it before it becomes the source of truth — then you rejoin the loop. Implementation in
+existing code uses a brownfield mode (characterization tests, seams, sprout/wrap, strangler fig).
+See **[`docs/brownfield.md`](docs/brownfield.md)** for the full how-to.

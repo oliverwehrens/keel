@@ -2,6 +2,7 @@
 id: EPIC-NNN
 title: <short title>
 status: draft        # draft | refining | ready | broken-down | in-progress | verified
+origin: authored     # authored | inferred | ratified (brownfield, see docs/brownfield.md)
 confidence: 1        # 1–5, see specs/README.md confidence gate
 briefing: ../briefing.md
 created: <YYYY-MM-DD>
