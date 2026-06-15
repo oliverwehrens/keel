@@ -39,6 +39,10 @@ said so; run it.
 7. **No scope drift.** The implementation does only what the story and epic require — nothing the
    product spec doesn't sanction.
 
+8. **Non-regression.** Every previously `verified` epic stays verified — the full suite is green and
+   no prior acceptance criterion now fails. Name any epic that regressed; a regression fails
+   verification even if the new story passes its own criteria.
+
 ## Outcome
 
 - **Story pass** — set the story `status: verified` and record which criteria/DoD items were
@@ -48,5 +52,6 @@ said so; run it.
   stories, with no uncovered criterion. Only then mark the epic `verified`. If an epic criterion
   is unmet or uncovered, the epic is not verified — raise it (likely a missing story via
   `sdd-breakdown`).
-- **Fail** — list the specific failures (criterion, epic-fidelity gap, DoD item, or guardian
-  blocker) and hand back to `sdd-implement`. Never mark `verified` while a failure is open.
+- **Fail** — list the specific failures (criterion, epic-fidelity gap, DoD item, guardian blocker,
+  or regression of a prior epic) and hand back to `sdd-implement`. Never mark `verified` while a
+  failure is open.

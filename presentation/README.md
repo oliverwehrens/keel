@@ -37,4 +37,5 @@ reveal.js into `node_modules/`.
 8. The loop (overview)
 9–18. One slide per skill: briefing, epic, refine, reconcile, tech-stack, tech-refine,
    breakdown, implement, verify, + the architecture-guardian subagent
-19. The loop mechanics & anchors · 20. What to watch out for · 21. Takeaways · 22. End
+19–20. Beyond greenfield: brownfield & iteration
+21. The loop mechanics & anchors · 22. What to watch out for · 23. Takeaways · 24. End

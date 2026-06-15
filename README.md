@@ -67,3 +67,11 @@ tech-stack, architecture, glossary) from the existing code, marks it `inferred`,
 **ratify** it before it becomes the source of truth — then you rejoin the loop. Implementation in
 existing code uses a brownfield mode (characterization tests, seams, sprout/wrap, strangler fig).
 See **[`docs/brownfield.md`](docs/brownfield.md)** for the full how-to.
+
+## Iterating after the first loop
+
+You don't restart the loop to add a feature — you **re-enter** at the right phase (new feature →
+`sdd-epic`, change → `sdd-refine`, refactor → `sdd-tech-refine`, bug → `sdd-implement`).
+`sdd-verify` adds **non-regression** (every previously verified epic stays verified), and
+**`/sdd-audit`** detects spec ↔ code drift before you build. See
+**[`docs/iteration.md`](docs/iteration.md)**.

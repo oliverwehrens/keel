@@ -312,6 +312,41 @@
           <div class="keyidea">When spec and code conflict, the <strong>product spec wins</strong> — every time.</div>
         </section>
 
+        <!-- Beyond greenfield: brownfield -->
+        <section>
+          <span class="badge guard">Beyond greenfield</span>
+          <h2 class="bare">Brownfield</h2>
+          <p>Existing code, thin specs? Invert the flow.</p>
+          <div class="pipe small">
+            <div class="row">
+              <span class="step">code</span><span class="sep">→</span>
+              <span class="step">sdd-adopt · inferred spec</span><span class="sep">→</span>
+              <span class="step">ratify</span><span class="sep">→</span>
+              <span class="step">the loop</span>
+            </div>
+          </div>
+          <ul class="small">
+            <li><strong>Just-in-time:</strong> baseline only the slice you're about to touch</li>
+            <li><strong>inferred → ratified:</strong> reverse-engineered guesses aren't truth until a human signs off</li>
+            <li><em>Legacy-aware build:</em> characterization tests · seams · sprout/wrap · strangler fig</li>
+          </ul>
+          <div class="keyidea">Same gates, same source-of-truth discipline — established descriptively first.</div>
+        </section>
+
+        <!-- Beyond greenfield: iteration -->
+        <section>
+          <span class="badge guard">Beyond greenfield</span>
+          <h2 class="bare">Iteration — re-enter, don't restart</h2>
+          <p>After the first loop, a change is a <strong>delta</strong> — enter at the right phase.</p>
+          <ul class="small">
+            <li>New feature → <em>epic</em> · change → <em>refine</em> · refactor → <em>tech-refine</em> · bug → <em>implement</em></li>
+            <li><strong>Reconcile</strong> checks the delta against existing epics &amp; the briefing</li>
+            <li><strong>Non-regression</strong> at verify: every prior verified epic stays verified</li>
+            <li><strong>sdd-audit</strong> catches spec ↔ code drift before you build</li>
+          </ul>
+          <div class="keyidea">The loop is a cycle, not a waterfall. The spec stays the living source of truth.</div>
+        </section>
+
         <!-- 19. the interaction loop / gates -->
         <section>
           <h2>The loop, mechanically</h2>
