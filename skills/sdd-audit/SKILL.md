@@ -39,7 +39,7 @@ artifact it concerns, severity, and the **resolution route** — audit does **no
 silently:
 
 - Undocumented code → `sdd-adopt` (brownfield) or `sdd-epic` (new intent).
-- Unbuilt spec → `sdd-breakdown` / `sdd-implement`, or retire the dead spec via `sdd-refine`.
+- Unbuilt spec → `sdd-story-breakdown` / `sdd-implement`, or retire the dead spec via `sdd-refine`.
 - Architecture violation → `sdd-tech-refine` (amend arch/ADR) or fix the code via `sdd-implement`.
 - Stale trace → `sdd-implement` / `sdd-verify`.
 - Glossary drift → `sdd-reconcile`.

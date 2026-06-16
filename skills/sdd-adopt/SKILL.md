@@ -57,7 +57,7 @@ Nothing is a source of truth while it is still `origin: inferred`.
 - **To trust the baseline:** as-is epics usually have no tests. Use `sdd-implement` in brownfield
   mode to add **characterization tests** that pin current behaviour, then `sdd-verify` → `verified`.
 - **To change behaviour:** treat it as iteration — amend the ratified epic via `sdd-refine`,
-  reconcile, breakdown, implement (brownfield mode), verify.
+  reconcile, story-breakdown, implement (brownfield mode), verify.
 
 ## Guardrails
 

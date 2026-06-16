@@ -15,7 +15,7 @@ project's `specs/` as work proceeds.
 ```
 PRODUCT:  briefing ─► epics ─► refine ─► reconcile
 TECH:     tech-stack ─► tech-refine
-BUILD:    breakdown ─► implement ─► verify
+BUILD:    story-breakdown ─► implement ─► verify
 ```
 
 The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
@@ -30,7 +30,7 @@ The tech phases decide *how* and must trace to it; they never redefine *what*.
    need, in `tech-stack.md`.
 6. **Tech refine** (`sdd-tech-refine`) — design the architecture on that stack and refine it
    to the tech gate in `architecture.md`; the `architecture-guardian` subagent reviews it.
-7. **Breakdown** (`sdd-breakdown`) — split a `reconciled` epic into implementation stories,
+7. **Breakdown** (`sdd-story-breakdown`) — split a `reconciled` epic into implementation stories,
    now grounded in the stack and architecture.
 8. **Implement** (`sdd-implement`) — build each story test-first, London-school (mockist) TDD,
    outside-in, conforming to the architecture and stack.
@@ -50,12 +50,12 @@ predicts the blast radius (product epics first); `sdd-verify` enforces non-regre
 ## The interaction loop
 
 Every refining phase (`sdd-refine`, `sdd-reconcile`, `sdd-techstack`, `sdd-tech-refine`,
-`sdd-breakdown`) works the same way, and **all state lives in the artifacts — never only in
+`sdd-story-breakdown`) works the same way, and **all state lives in the artifacts — never only in
 chat**:
 
 1. **Run** the skill. It does what it can, then for any decision that is yours it writes the
    open question into the artifact as exactly three options (`[ ]`, pros/cons, one marked
-   `(recommend)`) and hands back.
+   `(recommended)`) and hands back.
 2. **Decide** — either answer inline in the same session, or mark your pick with `[x]` in the
    file (and add notes / edit freely).
 3. **Continue** — say "continue", or just re-invoke the skill. Because the state is the files
@@ -65,7 +65,7 @@ chat**:
 4. **Repeat** until no open questions remain and the phase's gate / "done when" is met; then it
    advances the status and points to the next phase.
 
-Routing still applies: a phase only decides what is genuinely its own (e.g. `sdd-breakdown`
+Routing still applies: a phase only decides what is genuinely its own (e.g. `sdd-story-breakdown`
 decides slicing, but a product question goes back to `sdd-refine`).
 
 ## Layout
@@ -188,12 +188,12 @@ cheaper one. Set the session model with `/model` if you'd rather run one model t
 | Model    | Skills                                                        | Why                                                                |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------------ |
 | `opus`   | refine · reconcile · techstack · tech-refine · adopt · impact | Ambiguity, hard-to-reverse tradeoffs, cross-artifact judgment, inferring intent from code |
-| `sonnet` | briefing · epic · breakdown · implement · verify · audit      | Structured capture, drafting, decomposition, coding, checking      |
+| `sonnet` | briefing · epic · story-breakdown · implement · verify · audit | Structured capture, drafting, decomposition, coding, checking      |
 
 The **`architecture-guardian`** subagent is pinned to `opus` in its own front-matter, so its
 conformance review is always done by the strongest model — even when `implement` / `verify` /
 `audit` run on `sonnet`. That's the best cost/quality split: cheap generation, strong gate.
 
 `haiku` isn't used as a primary model here (every phase carries judgment); `fable` is a viable
-alternative for the heaviest reasoning skills if you prefer the newest model. Bump `breakdown` or
+alternative for the heaviest reasoning skills if you prefer the newest model. Bump `story-breakdown` or
 `implement` to `opus` for unusually gnarly epics or legacy code.

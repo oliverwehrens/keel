@@ -23,23 +23,23 @@ project; they write the spec into each project's `specs/` directory. (For local 
 ```
 PRODUCT:  briefing ─► epics ─► refine ─► reconcile
 TECH:     tech-stack ─► tech-refine
-BUILD:    breakdown ─► implement ─► verify
+BUILD:    story-breakdown ─► implement ─► verify
 ```
 
 The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
 The tech phases decide *how* and trace back to it — they never redefine *what*.
 
-| Phase      | Skill              | Produces                                     |
-| ---------- | ------------------ | -------------------------------------------- |
-| Briefing   | `/sdd-briefing`    | `specs/briefing.md`                          |
-| Epics      | `/sdd-epic`        | `specs/epics/EPIC-NNN-*.md`                  |
-| Refine     | `/sdd-refine`      | a `ready` epic (confidence gate)             |
-| Reconcile  | `/sdd-reconcile`   | a `reconciled` (final) epic                  |
-| Tech stack | `/sdd-techstack`   | `specs/tech-stack.md`                        |
-| Tech refine| `/sdd-tech-refine` | `specs/architecture.md` (guardian-reviewed)  |
-| Breakdown  | `/sdd-breakdown`   | `specs/stories/EPIC-NNN/*.md`                |
-| Implement  | `/sdd-implement`   | code + tests (London-school TDD)             |
-| Verify     | `/sdd-verify`      | a `verified` story (criteria + DoD)          |
+| Phase       | Skill                  | Produces                                    |
+| ----------- | ---------------------- | ------------------------------------------- |
+| Briefing    | `/sdd-briefing`        | `specs/briefing.md`                         |
+| Epics       | `/sdd-epic`            | `specs/epics/EPIC-NNN-*.md`                 |
+| Refine      | `/sdd-refine`          | a `ready` epic (confidence gate)            |
+| Reconcile   | `/sdd-reconcile`       | a `reconciled` (final) epic                 |
+| Tech stack  | `/sdd-techstack`       | `specs/tech-stack.md`                       |
+| Tech refine | `/sdd-tech-refine`     | `specs/architecture.md` (guardian-reviewed) |
+| Breakdown   | `/sdd-story-breakdown` | `specs/stories/EPIC-NNN/*.md`               |
+| Implement   | `/sdd-implement`       | code + tests (London-school TDD)            |
+| Verify      | `/sdd-verify`          | a `verified` story (criteria + DoD)         | `/sdd-verify`      | a `verified` story (criteria + DoD)          |
 
 The **`architecture-guardian`** subagent (ships with the plugin) reviews technical work and
 implementation against the product spec, stack, and architecture throughout. Implementation is
@@ -65,7 +65,7 @@ A `specs/glossary.md` keeps terminology consistent from spec to code.
    `reconciled` (final).
 5. `/sdd-techstack` — choose the tech stack, each decision traced to a product need.
 6. `/sdd-tech-refine` — design and refine the architecture on that stack (guardian-reviewed).
-7. `/sdd-breakdown` — split a reconciled epic into implementation stories grounded in the
+7. `/sdd-story-breakdown` — split a reconciled epic into implementation stories grounded in the
    stack and architecture.
 8. `/sdd-implement` — build each story test-first (London-school TDD), outside-in.
 9. `/sdd-verify` — check each story against its acceptance criteria and Definition of Done.

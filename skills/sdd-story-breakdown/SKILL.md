@@ -1,10 +1,10 @@
 ---
-name: sdd-breakdown
+name: sdd-story-breakdown
 model: sonnet
 description: Break a ready epic into implementation stories under specs/stories/. Use when an epic has cleared the confidence gate (status ready) and the user wants concrete, independently implementable and verifiable work items with sequencing.
 ---
 
-# sdd-breakdown
+# sdd-story-breakdown
 
 Split a `ready` epic into implementation stories. Read `${CLAUDE_PLUGIN_ROOT}/CONVENTIONS.md` for the ID
 scheme and the story template.
@@ -51,19 +51,39 @@ scheme and the story template.
 ## Handling open questions
 
 Breakdown runs on a `reconciled` epic and a `ready` architecture, so big unknowns should already
-be resolved. Route anything that surfaces by its kind — never absorb it silently:
+be resolved. Route anything that surfaces by its kind — never absorb it silently. And whenever a
+question stays inside the breakdown (a decomposition or implementation choice), **never write it
+down as a bare question.** Pose **exactly three** distinct, viable options as a checklist, each
+with pros and cons, mark the one you recommend `(recommended)`, and leave the boxes empty so the
+user picks one with `[x]` when they review the file:
+
+```
+### Q: <the open question>
+- [ ] **A — <short name>** (recommended)
+  - Pros: <why this is good>
+  - Cons: <the trade-off>
+- [ ] **B — <short name>**
+  - Pros: …
+  - Cons: …
+- [ ] **C — <short name>**
+  - Pros: …
+  - Cons: …
+```
+
+The three must be real alternatives, not one option and two straw men. Then hand back and let the
+user choose; do not pick for them.
 
 - **Product / scope / acceptance ambiguity** → stop and send it back to `sdd-refine` (or
   `sdd-reconcile`). The epic is the source of truth; breakdown may not redefine it. A real scope
   question here means the epic wasn't as `ready` as assumed.
 - **Architecture / stack ambiguity** → send it back to `sdd-tech-refine` (record it there as an ADR).
 - **Decomposition choices** (how to slice, sequencing, which story owns a capability) → these are
-  breakdown's own decisions. Resolve them with the three-option format from `sdd-refine`: exactly
-  three viable slicings, pros and cons, the one you recommend marked `(recommend)`, and let the
-  user pick with `[x]`.
-- **Genuine implementation detail** that doesn't affect scope or the slice → capture it as a
-  story-level *Open question* for `sdd-implement` to resolve test-first; never block the breakdown
-  on it.
+  breakdown's own decisions. Pose them with the three-option checklist above (three viable
+  slicings) and let the user pick with `[x]`.
+- **Genuine implementation detail** that doesn't affect scope or the slice → record it as a
+  story-level *Open question*, using the same three-option checklist so the user can choose one
+  later in the story file. Never block the breakdown on it: until the user picks, the `(recommended)`
+  option stands as the default for `sdd-implement` to resolve test-first.
 
 ## Done when
 

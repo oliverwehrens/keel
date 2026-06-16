@@ -12,13 +12,13 @@ unchanged.
 
 ## Where to start
 
-| You want to…                              | Start at                      | Then                                                              |
-| ----------------------------------------- | ----------------------------- | ---------------------------------------------------------------- |
-| Add a feature that fits the vision        | `sdd-epic` (new epic)         | refine → reconcile → (arch check) → breakdown → implement → verify |
-| Change an existing feature                | `sdd-refine` (amend the epic) | reconcile → breakdown the changed stories → implement → verify    |
-| Change goals / direction                  | `sdd-briefing`                | revisit affected epics (reconcile flags drift)                    |
-| Refactor or upgrade (no behaviour change) | `sdd-tech-refine`             | new ADR → implement → verify (behaviour unchanged)                |
-| Fix a bug                                 | `sdd-implement`               | failing test against the existing criterion → verify              |
+| You want to…                              | Start at                      | Then                                                                     |
+| ----------------------------------------- | ----------------------------- | ------------------------------------------------------------------------ |
+| Add a feature that fits the vision        | `sdd-epic` (new epic)         | refine → reconcile → (arch check) → story-breakdown → implement → verify |
+| Change an existing feature                | `sdd-refine` (amend the epic) | reconcile → story-breakdown the changed stories → implement → verify     |
+| Change goals / direction                  | `sdd-briefing`                | revisit affected epics (reconcile flags drift)                           |
+| Refactor or upgrade (no behaviour change) | `sdd-tech-refine`             | new ADR → implement → verify (behaviour unchanged)                       |
+| Fix a bug                                 | `sdd-implement`               | failing test against the existing criterion → verify                     |
 | Onboard / spec existing code              | `sdd-adopt`                   | ratify → then iterate as above (see `docs/brownfield.md`)         |
 
 ## Two things iteration adds

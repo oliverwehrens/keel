@@ -65,7 +65,7 @@ resolves back to the exact original within the process".
 
 - 2026-06-16 — created (confidence 1).
 - 2026-06-16 — refine pass: resolved the code-generation open question.
-  Posed three options — **A) random fixed-length base-36 (recommend)**: simple, no shared
+  Posed three options — **A) random fixed-length base-36 (recommended)**: simple, no shared
   counter, opaque; B) sequential counter base-62: shortest codes but needs shared state and
   leaks volume; C) hash of URL: dedups identical URLs but fixed-length collisions need
   handling. **Picked A.** Added the "unknown code → null" criterion. Confidence → 4.

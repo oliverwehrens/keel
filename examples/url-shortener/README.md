@@ -21,14 +21,14 @@ npm test        # node --test  → 4 passing
 | Reconcile | `sdd-reconcile` | EPIC-001 → `reconciled` | Traces to briefing goals; terms match glossary |
 | Tech stack | `sdd-techstack` | `specs/tech-stack.md` | Node + `node:test`, zero deps — each choice traced to a need |
 | Tech refine | `sdd-tech-refine` | `specs/architecture.md` | Ports & adapters; ADR-001, ADR-002; guardian PASS |
-| Breakdown | `sdd-breakdown` | `specs/stories/EPIC-001/*.md` | S01 shorten, S02 resolve; DoD + traceability |
+| Breakdown | `sdd-story-breakdown` | `specs/stories/EPIC-001/*.md` | S01 shorten, S02 resolve; DoD + traceability |
 | Implement | `sdd-implement` | `src/`, `test/` | London-school TDD — ports mocked; one wired acceptance test |
 | Verify | `sdd-verify` | this run | Suite green, criteria ↔ tests traced, guardian PASS |
 
 ## The gates that fired
 
 - **Confidence gate** (refine): the code-generation open question was posed as three options
-  (random base-36 *(recommend)* / sequential counter / URL hash); **A** was chosen and recorded
+  (random base-36 *(recommended)* / sequential counter / URL hash); **A** was chosen and recorded
   as a `Decision:` in the epic changelog before the epic could reach `ready`.
 - **Source of truth**: every tech-stack row and ADR traces to a product need; nothing invented.
 - **London TDD**: `Shortener` is tested with `CodeGenerator` and `LinkStore` **mocked** (owned

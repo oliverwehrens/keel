@@ -36,7 +36,7 @@ reveal.js into `node_modules/`.
 7. Why split product refinement from implementation
 8. The loop (overview)
 9–18. One slide per skill: briefing, epic, refine, reconcile, tech-stack, tech-refine,
-   breakdown, implement, verify, + the architecture-guardian subagent
+   story-breakdown, implement, verify, + the architecture-guardian subagent
 19. Beyond greenfield: brownfield → 20. sdd-adopt
 21. Beyond greenfield: iteration → 22. sdd-impact → 23. sdd-audit
 24. The loop mechanics & anchors · 25. What to watch out for · 26. Takeaways · 27. End

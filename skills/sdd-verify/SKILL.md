@@ -52,7 +52,7 @@ said so; run it.
   each epic acceptance criterion (Given/When/Then) is demonstrably met by the union of its
   stories, with no uncovered criterion. Only then mark the epic `verified`. If an epic criterion
   is unmet or uncovered, the epic is not verified — raise it (likely a missing story via
-  `sdd-breakdown`).
+  `sdd-story-breakdown`).
 - **Fail** — list the specific failures (criterion, epic-fidelity gap, DoD item, guardian blocker,
   or regression of a prior epic) and hand back to `sdd-implement`. Never mark `verified` while a
   failure is open.

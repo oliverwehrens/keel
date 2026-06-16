@@ -1,7 +1,7 @@
 ---
 name: sdd-implement
 model: sonnet
-description: Implement a story test-first in the London (mockist) TDD style — outside-in, need-driven, mocking only owned collaborators — conforming to the architecture, tech stack, and product spec. Use after sdd-breakdown when a story is ready to build.
+description: Implement a story test-first in the London (mockist) TDD style — outside-in, need-driven, mocking only owned collaborators — conforming to the architecture, tech stack, and product spec. Use after sdd-story-breakdown when a story is ready to build.
 ---
 
 # sdd-implement
@@ -14,7 +14,7 @@ sections, and `${CLAUDE_PROJECT_DIR}/specs/glossary.md`.
 ## Preconditions
 
 - A target story exists, its epic is `broken-down`, and `${CLAUDE_PROJECT_DIR}/specs/architecture.md` is `ready`. If
-  not, point back to `sdd-breakdown` / `sdd-tech-refine`.
+  not, point back to `sdd-story-breakdown` / `sdd-tech-refine`.
 - Set the story `status: in-progress`.
 
 ## The London-TDD loop (outside-in, double loop)

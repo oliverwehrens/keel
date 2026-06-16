@@ -49,7 +49,7 @@ Read the other epics in `${CLAUDE_PROJECT_DIR}/specs/epics/`, then verify:
 - **Substantive conflicts** that would change agreed scope (who owns a capability, dropping a
   criterion): do **not** decide silently. Surface each as a choice using the same
   three-option format as `sdd-refine` — exactly three viable options, pros and cons, the one
-  you recommend marked `(recommend)` — and wait for the user's `[x]` pick before changing
+  you recommend marked `(recommended)` — and wait for the user's `[x]` pick before changing
   scope.
 - **Coverage gaps**: report them and recommend `sdd-epic` to add the missing epic rather than
   stretching this one.
@@ -70,5 +70,5 @@ When the epic is consistent both ways and any conflicts are resolved:
 
 ## Next
 
-When `reconciled`, recommend `sdd-breakdown` to split the final epic into implementation
+When `reconciled`, recommend `sdd-story-breakdown` to split the final epic into implementation
 stories.

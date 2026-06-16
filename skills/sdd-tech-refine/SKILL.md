@@ -1,7 +1,7 @@
 ---
 name: sdd-tech-refine
 model: opus
-description: Design and refine the architecture on the chosen stack until it clears the tech confidence gate, staying faithful to the product spec. Use after sdd-techstack and before sdd-breakdown. Produces and refines specs/architecture.md and uses the architecture-guardian subagent to review.
+description: Design and refine the architecture on the chosen stack until it clears the tech confidence gate, staying faithful to the product spec. Use after sdd-techstack and before sdd-story-breakdown. Produces and refines specs/architecture.md and uses the architecture-guardian subagent to review.
 ---
 
 # sdd-tech-refine
@@ -23,7 +23,7 @@ truth** — this decides *how*, never *what*.
 
 2. **Refine like the product side.** Loop until the tech gate passes. For each open technical
    question, write **exactly three** viable options with pros and cons into *Open questions*,
-   mark the one you recommend `(recommend)`, and wait for the user's `[x]` pick. Fold each
+   mark the one you recommend `(recommended)`, and wait for the user's `[x]` pick. Fold each
    pick in as `**Decision:** <choice> — <why>` and append a Changelog entry with the new
    confidence.
 
@@ -49,5 +49,5 @@ truth** — this decides *how*, never *what*.
 
 ## Next
 
-When `ready`, recommend `sdd-breakdown` — stories can now carry concrete implementation notes
+When `ready`, recommend `sdd-story-breakdown` — stories can now carry concrete implementation notes
 grounded in the stack and architecture.

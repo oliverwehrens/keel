@@ -27,7 +27,7 @@ must serve a stated product need and may not redefine the product.
 
 3. **Pose genuine forks as choices.** Where a decision is consequential and not clear-cut,
    use the three-option format from `sdd-refine` — exactly three viable options, pros and
-   cons, the one you recommend marked `(recommend)` — and let the user pick with `[x]`. Don't
+   cons, the one you recommend marked `(recommended)` — and let the user pick with `[x]`. Don't
    railroad a single answer.
 
 4. **Record it.** Copy `${CLAUDE_PLUGIN_ROOT}/templates/tech-stack.md` to `${CLAUDE_PROJECT_DIR}/specs/tech-stack.md` and fill the

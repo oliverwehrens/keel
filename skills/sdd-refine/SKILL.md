@@ -29,11 +29,11 @@ Set the epic's `status: refining`, then repeat until the gate is met:
 2. **Pose every open question as a choice — don't decide for the user.** For each open
    question (existing or newly surfaced), write **exactly three** distinct, viable options
    into the epic's *Open questions* section as a checklist, each with pros and cons, and
-   mark the one you recommend with `(recommend)`:
+   mark the one you recommend with `(recommended)`:
 
    ```
    ### Q: <the open question>
-   - [ ] **A — <short name>** (recommend)
+   - [ ] **A — <short name>** (recommended)
      - Pros: <why this is good>
      - Cons: <the trade-off>
    - [ ] **B — <short name>**

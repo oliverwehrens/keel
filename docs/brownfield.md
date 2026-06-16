@@ -49,7 +49,7 @@ change.
 Now you're in the normal loop. To modify or extend behaviour:
 
 ```
-sdd-refine (amend the ratified epic) → sdd-reconcile → sdd-breakdown
+sdd-refine (amend the ratified epic) → sdd-reconcile → sdd-story-breakdown
   → sdd-implement (brownfield mode) → sdd-verify
 ```
 
