@@ -1,0 +1,10 @@
+{
+  "name": "url-shortener-sdd-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Worked example of the SDD loop — a tiny in-memory URL shortener (ports & adapters, London TDD).",
+  "scripts": {
+    "test": "node --test"
+  }
+}
