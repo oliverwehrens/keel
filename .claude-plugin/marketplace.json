@@ -1,12 +1,12 @@
 {
-  "name": "clauderemote",
+  "name": "keel",
   "owner": {
     "name": "Oliver Wehrens"
   },
   "description": "Spec-driven development workflow for Claude Code.",
   "plugins": [
     {
-      "name": "sdd",
+      "name": "keel",
       "source": "./",
       "description": "Gated spec-driven development workflow (briefing → … → verify) with an architecture-guardian subagent, brownfield adoption, drift audit, and blast-radius analysis.",
       "category": "workflow",

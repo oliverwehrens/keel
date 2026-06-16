@@ -1,4 +1,4 @@
-# clauderemote — Spec-Driven Development (Claude Code plugin)
+# Keel — Spec-Driven Development (Claude Code plugin)
 
 A [Claude Code](https://claude.com/claude-code) **plugin** that turns a rough idea into
 implementation-ready specs through a deliberate, gated pipeline. You drive each phase from
@@ -10,13 +10,13 @@ reviewable.
 This repo is both the plugin and its own marketplace:
 
 ```bash
-/plugin marketplace add oliverwehrens/clauderemote
-/plugin install sdd@clauderemote
+/plugin marketplace add oliverwehrens/keel
+/plugin install keel@keel
 ```
 
 The `sdd-*` skills and the `architecture-guardian` subagent are then available in every
 project; they write the spec into each project's `specs/` directory. (For local development,
-`/plugin marketplace add ./clauderemote` then `/plugin install sdd@clauderemote` works too.)
+`/plugin marketplace add ./keel` then `/plugin install keel@keel` works too.)
 
 ## Pipeline
 

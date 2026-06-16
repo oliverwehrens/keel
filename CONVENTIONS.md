@@ -6,7 +6,7 @@ IDs, status lifecycle, the confidence gate, the interaction loop, anchors, and m
 choices — that every skill follows. Treat the generated specs as the source of truth that
 implementation must conform to.
 
-This file ships with the **`sdd` plugin** (the `sdd-*` skills + the `architecture-guardian`
+This file ships with the **`keel` plugin** (the `sdd-*` skills + the `architecture-guardian`
 subagent). Templates ship in the plugin's `templates/`; the skills copy them into the
 project's `specs/` as work proceeds.
 
