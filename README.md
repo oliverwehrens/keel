@@ -1,8 +1,22 @@
-# clauderemote — Spec-Driven Development skills
+# clauderemote — Spec-Driven Development (Claude Code plugin)
 
-A set of [Claude Code](https://claude.com/claude-code) skills that turn a rough idea into
+A [Claude Code](https://claude.com/claude-code) **plugin** that turns a rough idea into
 implementation-ready specs through a deliberate, gated pipeline. You drive each phase from
-the chat; the skills keep the spec artifacts in `specs/` consistent and reviewable.
+the chat; the skills keep the spec artifacts in your project's `specs/` consistent and
+reviewable.
+
+## Install
+
+This repo is both the plugin and its own marketplace:
+
+```bash
+/plugin marketplace add oliverwehrens/clauderemote
+/plugin install sdd@clauderemote
+```
+
+The `sdd-*` skills and the `architecture-guardian` subagent are then available in every
+project; they write the spec into each project's `specs/` directory. (For local development,
+`/plugin marketplace add ./clauderemote` then `/plugin install sdd@clauderemote` works too.)
 
 ## Pipeline
 
@@ -27,19 +41,20 @@ The tech phases decide *how* and trace back to it — they never redefine *what*
 | Implement  | `/sdd-implement`   | code + tests (London-school TDD)             |
 | Verify     | `/sdd-verify`      | a `verified` story (criteria + DoD)          |
 
-The **`architecture-guardian`** subagent (`.claude/agents/`) reviews technical work and
+The **`architecture-guardian`** subagent (ships with the plugin) reviews technical work and
 implementation against the product spec, stack, and architecture throughout. Implementation is
 **London-school (mockist) TDD**, outside-in, with acceptance criteria written as Given/When/Then.
 A `specs/glossary.md` keeps terminology consistent from spec to code.
 
 ## How it works
 
-- Each phase is a skill in `.claude/skills/`. Invoke it as a slash command
-  (`/sdd-briefing`) or just describe the intent and Claude will pick the right one.
-- All artifacts live in `specs/` as plain markdown — diffable, reviewable, committable.
-- Conventions (IDs, status lifecycle, the confidence gate) are defined once in
-  [`specs/README.md`](specs/README.md); every skill follows them.
-- Templates in `specs/_templates/` are the single source of truth for artifact structure.
+- Each phase is a plugin **skill**. Invoke it as a slash command (`/sdd-briefing`) or just
+  describe the intent and Claude will pick the right one.
+- All artifacts live in your project's `specs/` as plain markdown — diffable, reviewable,
+  committable.
+- Conventions (IDs, status lifecycle, the confidence gate, model choices) are defined once in
+  [`CONVENTIONS.md`](CONVENTIONS.md); every skill follows them.
+- Templates in [`templates/`](templates/) ship with the plugin and seed each project's specs.
 
 ## Quick start
 

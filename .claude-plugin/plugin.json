@@ -1,0 +1,20 @@
+{
+  "name": "sdd",
+  "displayName": "Spec-Driven Development",
+  "description": "A gated, spec-driven development workflow as Claude Code skills: briefing → epic → refine → reconcile → tech-stack → tech-refine → breakdown → implement → verify, with brownfield adoption, drift audit, blast-radius analysis, and an architecture-guardian subagent. The product spec stays the source of truth.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Oliver Wehrens"
+  },
+  "homepage": "https://github.com/oliverwehrens/clauderemote",
+  "repository": "https://github.com/oliverwehrens/clauderemote",
+  "license": "MIT",
+  "keywords": [
+    "spec-driven-development",
+    "sdd",
+    "tdd",
+    "architecture",
+    "workflow",
+    "agentic-engineering"
+  ]
+}
