@@ -30,6 +30,11 @@ Turn `${CLAUDE_PROJECT_DIR}/specs/briefing.md` into one or more epics under `${C
    Present the proposed list (titles + one-line summaries) to the user and adjust before
    writing files.
 
+   **Brownfield-aware (if `${CLAUDE_PROJECT_DIR}/specs/domains/` exists):** scan the dossier index for contexts
+   the proposed epics touch. Where an epic changes behaviour a dossier already records, prefer
+   **promotion** (see below) and say so; flag any new epic that overlaps or contradicts a dossier's
+   *Current capabilities*. Keep this to a flag — the full conflict check belongs to `sdd-reconcile`.
+
 3. **Assign IDs.** Scan `${CLAUDE_PROJECT_DIR}/specs/epics/` for the highest existing `EPIC-NNN` and continue
    from there. Never reuse an ID. Filename: `EPIC-NNN-<kebab-slug>.md`.
 

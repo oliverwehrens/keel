@@ -42,6 +42,20 @@ Read the other epics in `${CLAUDE_PROJECT_DIR}/specs/epics/`, then verify:
 - **Consistent terms** — the same concept uses the same name across epics; align drift against
   `${CLAUDE_PROJECT_DIR}/specs/glossary.md` and add any missing terms to it.
 
+### 3. Brownfield — epic ↔ domain dossiers
+
+Only if `${CLAUDE_PROJECT_DIR}/specs/domains/` exists (the repo was onboarded with `sdd-adopt`). Read the
+**ratified** dossiers that overlap this epic's scope and verify:
+
+- **No silent contradiction of current behaviour** — where the epic keeps behaviour the dossier
+  records, its acceptance criteria must not contradict the dossier's *Current capabilities*. A
+  genuine *change* to current behaviour is fine, but it must be explicit in the epic, not accidental.
+- **No duplicate capability** — the epic isn't re-specifying a capability a dossier already covers
+  unless it is deliberately changing it.
+- **Promotion supersedes** — if this epic was **promoted** from a dossier slice (see `sdd-epic`),
+  divergence from the dossier *on that slice* is expected, not a conflict: the epic now owns it.
+  Only divergence on behaviour the epic did **not** mean to change is a finding.
+
 ## Resolving what you find
 
 - **Mechanical fixes** (terminology, a missing back-reference, a clarifying note): apply

@@ -32,6 +32,17 @@ Audit a slice (a module / epic / area) by default; whole-repo is opt-in. State t
    criterion ↔ test ↔ code links.
 5. **Terminology drift** — code/tests using terms that disagree with `${CLAUDE_PROJECT_DIR}/specs/glossary.md`.
 
+### Brownfield — also audit against the dossiers
+
+If `${CLAUDE_PROJECT_DIR}/specs/domains/` exists, treat the **ratified** dossiers as a current-state spec source
+alongside epics:
+
+- code that **contradicts** a dossier's *Current capabilities* (behaviour changed without the
+  dossier being updated or the slice promoted to an epic) is drift;
+- a dossier capability with **no code or test** backing it is drift;
+- for "undocumented code" (check 1), behaviour covered by a ratified dossier counts as documented —
+  don't re-flag it; truly uncovered behaviour still does.
+
 ## Output
 
 A drift report grouped by the five categories. Each finding states: where it is, which spec rule or
@@ -43,6 +54,8 @@ silently:
 - Architecture violation → `sdd-tech-refine` (amend arch/ADR) or fix the code via `sdd-implement`.
 - Stale trace → `sdd-implement` / `sdd-verify`.
 - Glossary drift → `sdd-reconcile`.
+- Dossier ↔ code disagreement (brownfield) → `sdd-adopt` to re-assess/re-ratify the dossier if the
+  code is right, or `sdd-epic` to promote the change forward if the behaviour change was intended.
 
 End with a one-line verdict: **IN SYNC** (no drift) or **DRIFT FOUND (N)**.
 

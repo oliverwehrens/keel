@@ -23,6 +23,10 @@ target depends on):
 
 - **Across (product)** — sibling epics that share a capability, depend on the target, reference the
   same glossary term, or whose acceptance criteria would overlap or contradict after the change.
+- **Against current state (brownfield)** — if `${CLAUDE_PROJECT_DIR}/specs/domains/` exists, the ratified
+  dossiers whose *Current capabilities* the change would disturb. In brownfield this is a richer,
+  faster source than raw code search for "what existing behaviour does this touch", and a change
+  that contradicts a dossier capability not yet promoted to an epic is a current-state conflict.
 - **Up (to product)** — for a tech/code change, which **product epics** does the touched code serve
   (via criterion ↔ test ↔ code)? A change that touches an epic's criteria is a product impact even
   if it was filed as a "pure refactor".
@@ -36,7 +40,8 @@ Lead with the product layer; it is the source of truth.
 1. **Product epics affected** — direct and transitive. For each: the epic, *why* it's impacted
    (shared capability / dependency / criterion conflict / shared briefing goal / glossary term), and
    whether its acceptance criteria are threatened. Flag any **contradiction between two product
-   promises** as the highest-severity finding.
+   promises** — or, in brownfield, between the change and a ratified dossier's current behaviour —
+   as the highest-severity finding.
 2. **Briefing goals/non-goals implicated** — and which other epics share them.
 3. **Tech impact** — ADRs/components affected, and whether an architecture change
    (`sdd-tech-refine`) is implied.

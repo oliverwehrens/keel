@@ -44,6 +44,13 @@ Read `${CLAUDE_PLUGIN_ROOT}/CONVENTIONS.md` first for conventions.
 5. **Write it back.** Keep the briefing short (one screen if possible). It is allowed to
    be incomplete early — but every filled section must be true.
 
+6. **Brownfield reality check (only if `${CLAUDE_PROJECT_DIR}/specs/domains/` exists).** The repo was onboarded
+   with `sdd-adopt`, so current behaviour is recorded in ratified dossiers. Sanity-check new goals
+   and non-goals against them and surface clashes *early*: a goal that contradicts existing
+   behaviour, or a non-goal the system already does. Don't resolve it here — park each as an
+   *Open question* so it's caught before epics are drafted. Keep this light; the deep check is
+   `sdd-reconcile`'s job.
+
 ## Done when
 
 - `${CLAUDE_PROJECT_DIR}/specs/briefing.md` has a real Problem (with the current alternative), at

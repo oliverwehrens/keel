@@ -148,6 +148,12 @@ Every spec artifact also carries an `origin` in front-matter, orthogonal to `sta
 
 Nothing downstream may rely on an `origin: inferred` artifact. See `docs/brownfield.md`.
 
+A **ratified domain dossier** is the **current-state source of truth** for its bounded context —
+until a `reconciled` epic supersedes a slice of it (via `sdd-epic` promotion), after which the epic
+owns that slice. The consistency phases read the dossiers so conflicts surface early: `sdd-briefing`
+sanity-checks new intent against them, `sdd-reconcile` and `sdd-impact` check epics/changes against
+them, and `sdd-audit` treats them as a spec source for drift.
+
 ## Confidence gate
 
 `sdd-refine` does not mark an epic `ready` until **all** of these hold:
