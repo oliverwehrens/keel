@@ -26,8 +26,11 @@ TECH:     tech-stack ─► tech-refine
 BUILD:    story-breakdown ─► implement ─► verify
 ```
 
-The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
-The tech phases decide *how* and trace back to it — they never redefine *what*.
+"Spec" here is the whole `specs/` tree (briefing, epics, tech-stack, architecture, glossary,
+stories) — not a single file. But only a slice of it is the **source of truth**: the **product
+description**, i.e. `briefing.md` + **reconciled** epics. The tech phases (`tech-stack`,
+`architecture`) live in `specs/` too, but they decide *how* and trace back to the product — they
+never redefine *what*.
 
 | Phase       | Skill                  | Produces                                    |
 | ----------- | ---------------------- | ------------------------------------------- |

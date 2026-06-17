@@ -21,6 +21,12 @@ BUILD:    story-breakdown ─► implement ─► verify
 The **product description** (`briefing.md` + reconciled epics) is the **source of truth**.
 The tech phases decide *how* and must trace to it; they never redefine *what*.
 
+> **"Spec" vs "source of truth".** The *specification* is the entire `specs/` tree; the *source of
+> truth* is only its product layer — `briefing.md` and epics that have reached `reconciled`. A
+> `draft` epic and the tech artifacts (`tech-stack.md`, `architecture.md`) are part of the spec but
+> are **not** source of truth: drafts aren't trusted yet, and tech conforms to the product, never
+> the reverse.
+
 1. **Briefing** (`sdd-briefing`) — capture the raw intent in `briefing.md`.
 2. **Epic** (`sdd-epic`) — turn the briefing into one or more epics under `epics/`.
 3. **Refine** (`sdd-refine`) — iterate an epic until it clears the confidence gate (`ready`).
