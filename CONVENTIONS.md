@@ -40,8 +40,10 @@ The tech phases decide *how* and must trace to it; they never redefine *what*.
 > The `architecture-guardian` subagent reviews technical work and implementation throughout
 > (tech-refine, implement, verify), not just one phase.
 
-**Brownfield?** A repo that already has code starts with **`sdd-adopt`** — reverse-engineer the
-spec from the code and ratify it — then rejoins the loop. See `docs/brownfield.md`.
+**Brownfield?** A repo that already has code starts with **`sdd-adopt`** — reverse-engineer a
+current-state assessment (per-context dossiers, stack, architecture, glossary) from the code and
+ratify it, then author epics forward (promote a dossier slice) as you change things. `sdd-adopt`
+assesses what *is*; it does not write a briefing or epics. See `docs/brownfield.md`.
 
 **Iterating?** After the first loop you re-enter at the right phase. Before a change, **`sdd-impact`**
 predicts the blast radius (product epics first); `sdd-verify` enforces non-regression; and
@@ -77,6 +79,7 @@ The plugin ships the rulebook, templates, guides, and the guardian:
   CONVENTIONS.md       ← you are here (the shared rulebook)
   templates/           ← canonical templates the skills copy into the project
     briefing.md  epic.md  story.md  tech-stack.md  architecture.md  glossary.md
+    domain.md  domain-index.md   ← brownfield current-state dossiers (sdd-adopt)
   agents/architecture-guardian.md
   docs/                ← brownfield.md, iteration.md
 ```
@@ -91,6 +94,9 @@ specs/
   tech-stack.md        ← chosen stack (after reconcile)
   architecture.md      ← architecture / guidelines (refined by sdd-tech-refine)
   glossary.md          ← ubiquitous language (shared term definitions)
+  domains/             ← brownfield only: current-state assessment per bounded context (sdd-adopt)
+    index.md           ← navigation map of the dossiers
+    <context>.md       ← one dossier per bounded context
   stories/
     EPIC-001/
       EPIC-001-S01-<slug>.md

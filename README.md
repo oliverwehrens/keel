@@ -77,11 +77,13 @@ Definition of Done all pass. So every phase starts from solid ground.
 
 ## Brownfield projects
 
-Already have code? Start with **`/sdd-adopt`**: it reverse-engineers the spec (briefing, epics,
-tech-stack, architecture, glossary) from the existing code, marks it `inferred`, and has you
-**ratify** it before it becomes the source of truth — then you rejoin the loop. Implementation in
-existing code uses a brownfield mode (characterization tests, seams, sprout/wrap, strangler fig).
-See **[`docs/brownfield.md`](docs/brownfield.md)** for the full how-to.
+Already have code? Start with **`/sdd-adopt`**: it reverse-engineers a current-state assessment —
+per-context **domain dossiers** plus tech-stack, architecture, and glossary — from the existing
+code, marks it `inferred`, and has you **ratify** it before it becomes the source of truth. Adopt
+assesses what *is*; it doesn't write a briefing or epics (those are forward-looking). When you go
+to change an area, **promote** the relevant dossier slice into a forward epic and rejoin the loop.
+Implementation in existing code uses a brownfield mode (characterization tests, seams, sprout/wrap,
+strangler fig). See **[`docs/brownfield.md`](docs/brownfield.md)** for the full how-to.
 
 ## Iterating after the first loop
 
