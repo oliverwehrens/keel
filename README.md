@@ -92,3 +92,12 @@ You don't restart the loop to add a feature — you **re-enter** at the right ph
 changing, **`/sdd-impact`** predicts the blast radius (which product epics, tech, and tests it
 touches); `sdd-verify` adds **non-regression** (every previously verified epic stays verified); and
 **`/sdd-audit`** detects spec ↔ code drift. See **[`docs/iteration.md`](docs/iteration.md)**.
+
+## Worked examples
+
+Two small, real runs you can read end-to-end:
+
+- **[`examples/url-shortener`](examples/url-shortener/)** — the greenfield loop, briefing → verified.
+- **[`examples/brownfield-tasklist`](examples/brownfield-tasklist/)** — `sdd-adopt` on a
+  pre-existing library: current-state **domain dossiers** reverse-engineered from the code (no
+  briefing, no epics), then ratified.

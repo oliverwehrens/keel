@@ -1,0 +1,10 @@
+{
+  "name": "tasklist-brownfield-sdd-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Worked example of sdd-adopt — a tiny pre-existing task-list library baselined into current-state domain dossiers.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
