@@ -7,6 +7,9 @@
 
 What problem are we solving, and for whom? What is painful today?
 
+**Today people…** describe the current workaround or alternative, and why it falls short — that
+is the real bar to beat.
+
 ## Users & stakeholders
 
 - **Primary users:** …
@@ -31,9 +34,18 @@ integrate with.
 
 ## Success metrics
 
-How we will know it worked (observable outcomes, not features).
+How we will know it worked — observable outcomes, not features. Give each a baseline (today)
+and a target so it's measurable.
 
-- …
+- … — _today:_ …, _target:_ …
+
+## Assumptions & risks
+
+What we believe but haven't validated, and what could go wrong. Flag the ones that would change
+the plan if they turn out false — these are the things to de-risk first.
+
+- **Assumption:** … — _how we'd validate / what if it's false:_ …
+- **Risk:** … — _likelihood / impact:_ …
 
 ## Open questions
 
